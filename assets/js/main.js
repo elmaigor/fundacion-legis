@@ -2,6 +2,14 @@
 /* Fundación Legis — main.js
    Consent, menu, and a11y helpers.
 */
+// Normaliza rutas sin barra final: /fundacion-legis -> /fundacion-legis/
+(function () {
+  var p = location.pathname;
+  if (!/\.[a-z0-9]+$/i.test(p) && !p.endsWith('/')) {
+    location.replace(p + '/' + location.search + location.hash);
+  }
+})();
+
 (function() {
   // Mobile menu toggle
   const menuBtn = document.querySelector('.menu-btn');
