@@ -10,16 +10,35 @@
   }
 })();
 
-(function() {
-  // Mobile menu toggle
-  const menuBtn = document.querySelector('.menu-btn');
-  const links = document.querySelector('.navlinks');
-  if (menuBtn && links) {
-    menuBtn.addEventListener('click', () => {
-      links.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', links.classList.contains('open') ? 'true' : 'false');
-    });
-  }
+const menuBtn = document.querySelector('.menu-btn');
+const links = document.querySelector('.navlinks');
+if (menuBtn && links) {
+  menuBtn.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    menuBtn.classList.toggle('is-open', isOpen);
+    menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+    const openLabelES = 'Cerrar menú', openLabelEN = 'Close menu';
+    const closeLabelES = 'Abrir menú',  closeLabelEN = 'Open menu';
+    const isEN = document.documentElement.lang === 'en';
+    menuBtn.setAttribute('aria-label', isOpen ? (isEN ? openLabelEN : openLabelES) : (isEN ? closeLabelEN : closeLabelES));
+
+    document.documentElement.classList.toggle('nav-open', isOpen);
+    document.body.classList.toggle('nav-open', isOpen);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!links.contains(e.target) && !menuBtn.contains(e.target) && links.classList.contains('open')) {
+      links.classList.remove('open');
+      menuBtn.classList.remove('is-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      const isEN = document.documentElement.lang === 'en';
+      menuBtn.setAttribute('aria-label', isEN ? 'Open menu' : 'Abrir menú');
+      document.documentElement.classList.remove('nav-open');
+      document.body.classList.remove('nav-open');
+    }
+  });
+}
 
   // Cookie consent
   const BANNER = document.getElementById('cookie-banner');
