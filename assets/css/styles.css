@@ -158,3 +158,122 @@ footer .credit { opacity:.6; font-size:.85rem; }
   .header, .cookie-banner, .menu-btn, .navlinks, .lang-switch { display:none !important; }
   body { color:#000; }
 }
+/* ===== Mobile nav improvements ===== */
+.menu-btn {
+  display: none;
+  align-items: center;
+  gap: .5rem;
+  background: #fff;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: .75rem;
+  padding: .5rem .65rem;
+  height: 44px;
+  min-width: 44px;
+}
+.menu-btn:focus { outline: 3px solid var(--brand-200); outline-offset: 2px; }
+.menu-btn .menu-text { font-weight: 600; font-size: .95rem; }
+.menu-btn .menu-icon { width: 20px; height: 2px; background: var(--text); position: relative; border-radius: 2px; display: inline-block; }
+.menu-btn .menu-icon::before,
+.menu-btn .menu-icon::after { content: ""; position: absolute; left: 0; right: 0; height: 2px; background: var(--text); border-radius: 2px; }
+.menu-btn .menu-icon::before { top: -6px; }
+.menu-btn .menu-icon::after  { top:  6px; }
+.menu-btn.is-open .menu-icon { background: transparent; }
+.menu-btn.is-open .menu-icon::before { transform: rotate(45deg); top: 0; }
+.menu-btn.is-open .menu-icon::after  { transform: rotate(-45deg); top: 0; }
+
+@media (max-width: 900px) {
+  .menu-btn { display: inline-flex; }
+  .header { position: sticky; top: 0; background: #fff; }
+  .navbar { position: relative; }
+  .navlinks {
+    display: none;
+    position: absolute;
+    left: 0; right: 0; top: calc(100% + 8px);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: .75rem;
+    padding: .5rem;
+    box-shadow: 0 16px 30px rgba(0,0,0,.08);
+  }
+  .navlinks.open { display: flex; flex-direction: column; align-items: stretch; gap: .25rem; }
+  .navlinks a { padding: .8rem 1rem; border-radius: .5rem; }
+  .navlinks a:hover { background: var(--bg-alt); }
+  html.nav-open, body.nav-open { overflow: hidden; }
+}
+/* ===== Visual refresh ===== */
+
+/* Titulares con eyebrow y subrayado sutil */
+.eyebrow {
+  display:inline-block; font-size:.8rem; letter-spacing:.08em; text-transform:uppercase;
+  color: var(--text-muted); border:1px solid var(--border); padding:.2rem .5rem; border-radius:999px; margin-bottom:.5rem;
+}
+.section h2 {
+  position: relative; padding-bottom: .4rem;
+}
+.section h2::after {
+  content:""; position:absolute; left:0; bottom:0; width:64px; height:3px; border-radius:2px; background: var(--brand);
+  box-shadow: 0 2px 0 0 var(--brand-200);
+}
+
+/* Alternancias de fondo para romper monotonía */
+.section--alt { background: var(--bg-alt); }
+.section--brand { background: linear-gradient(180deg, var(--brand-100), #fff 70%); }
+.section--divider { border-top: 4px solid var(--brand-100); }
+
+/* Tarjetas más “premium” */
+.card { transition: transform .18s ease, box-shadow .18s ease; }
+.card:hover, .card:focus-within { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(0,0,0,.10); }
+
+/* Tarjeta destacada con filete de marca */
+.card--accent { border-left: 4px solid var(--brand); }
+
+/* Listas con check (solo estilo, sin iconos externos) */
+ul.check {
+  list-style: none; padding-left: 0;
+}
+ul.check li {
+  position: relative; padding-left: 1.4rem; margin: .4rem 0;
+}
+ul.check li::before {
+  content: "✓"; position: absolute; left: 0; top: 0; font-weight:700; color: var(--brand);
+}
+
+/* Pasos numerados bonitos (beneficiarios) */
+ol.steps { counter-reset: st; list-style: none; padding:0; }
+ol.steps li {
+  counter-increment: st; background:#fff; border:1px solid var(--border); border-radius:.75rem; padding: .8rem .9rem; margin:.5rem 0;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+}
+ol.steps li::before {
+  content: counter(st); display:inline-grid; place-items:center; width:28px; height:28px; margin-right:.5rem;
+  background: var(--brand); color:#fff; border-radius:999px; font-weight:700;
+}
+
+/* KPIs más vistosas */
+.stat { background: #fff; border: 1px solid var(--border); }
+.stat strong { font-size: clamp(1.4rem, 2.6vw, 2rem); }
+
+/* Partners con “desaturado → color” al hover */
+.partners img { filter: grayscale(40%) contrast(1.05); opacity:.9; transition: filter .2s ease, opacity .2s ease, transform .2s ease; }
+.partners img:hover { filter: none; opacity:1; transform: translateY(-2px); }
+
+/* Hero: mejorar contraste de fondo */
+.hero {
+  background:
+    radial-gradient(1200px 400px at 20% -20%, var(--brand-100), transparent),
+    linear-gradient(180deg, #fff, #fff);
+}
+
+/* Botones más definidos */
+button, .cta, .ghost {
+  transition: transform .08s ease, box-shadow .12s ease, filter .12s ease;
+}
+button:hover, .cta:hover { filter: brightness(1.07); box-shadow: 0 8px 18px rgba(0,0,0,.08); transform: translateY(-1px); }
+button.ghost:hover, a.ghost:hover { border-color: var(--brand-200); }
+
+/* Mejoras de tipografía en lead */
+.section p.lead { font-size: clamp(1.02rem, 1.15vw, 1.15rem); }
+
+/* Footer más legible en móvil */
+footer .inner { row-gap: 1rem; }
