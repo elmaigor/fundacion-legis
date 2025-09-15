@@ -277,3 +277,24 @@ button.ghost:hover, a.ghost:hover { border-color: var(--brand-200); }
 
 /* Footer más legible en móvil */
 footer .inner { row-gap: 1rem; }
+/* ===== Resaltado interactivo (hover/clic) ===== */
+strong { 
+  color: inherit; 
+  font-weight: 700; 
+  background: linear-gradient(to top, var(--brand-100) 0%, var(--brand-100) 38%, transparent 38%) no-repeat left bottom / 0 100%;
+  transition: background-size .18s ease, color .12s ease, box-shadow .18s ease;
+}
+
+/* En hover/focus: subrayado ancho y color de marca */
+strong:hover, strong:focus {
+  color: var(--brand);
+  background-size: 100% 100%;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Al hacer clic (clase activada por JS), queda resaltado */
+strong.hl-active {
+  color: var(--brand);
+  background: linear-gradient(to top, var(--brand-100) 0%, var(--brand-100) 38%, transparent 38%) no-repeat left bottom / 100% 100%;
+}
