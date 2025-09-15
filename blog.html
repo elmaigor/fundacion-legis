@@ -1,49 +1,120 @@
 <!doctype html>
 <html lang="es">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Noticias — Fundación Legis</title>
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Noticias — Fundación Legis</title>
-<link rel="canonical" href="/blog.html" />
-<link rel="alternate" hreflang="en" href="/en/news.html" />
-<meta name="description" content="Actualidad, publicaciones y memorias de la Fundación Legis." />
-<meta name="theme-color" content="#8F273B" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Noticias — Fundación Legis" />
-<meta property="og:description" content="Actualidad, publicaciones y memorias de la Fundación Legis." />
-<meta property="og:image" content="assets/img/logo-fundacion.jpg" />
-<meta property="og:locale" content="es_ES" />
-<link rel="icon" href="favicon.ico" />
-<link rel="stylesheet" href="assets/css/styles.css" />
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NGO", "name": "Fundación Legis", "url": "https://www.fundacionlegis.org/"}</script>
+  <link rel="canonical" href="./blog.html" />
+  <link rel="alternate" hreflang="en" href="en/news.html" />
+  <meta name="description" content="Actualidad, publicaciones y memorias de la Fundación Legis." />
+  <meta name="theme-color" content="#8F273B" />
+  <meta name="author" content="Fundación Legis" />
 
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Noticias — Fundación Legis" />
+  <meta property="og:description" content="Actualidad, publicaciones y memorias de la Fundación Legis." />
+  <meta property="og:image" content="assets/img/logo-fundacion.jpg" />
+  <meta property="og:locale" content="es_ES" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Noticias — Fundación Legis" />
+  <meta name="twitter:description" content="Actualidad, publicaciones y memorias de la Fundación Legis." />
+  <meta name="twitter:image" content="assets/img/logo-fundacion.jpg" />
+
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preload" as="image" href="assets/img/logo-fundacion.jpg" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body>
-<a href="#main" class="skip-link">Saltar al contenido principal</a>
-<header class="header">
-  <div class="container navbar">
-    <a href="index.html" class="brand"><img src="assets/img/logo-fundacion.jpg" alt="" /><span>Fundación Legis</span></a>
-    <nav class="navlinks"><a href="index.html">Inicio</a><a href="#posts">Noticias</a></nav>
-  </div>
-</header>
-<main id="main" class="section container">
-  <h1>Noticias</h1>
-  <p class="lead">Aquí publicaremos actualizaciones, artículos y memorias anuales.</p>
-  <section id="posts" class="grid-2">
-    <article class="card"><h3>Memoria anual — próximamente</h3><p>Publicaremos un resumen de actividades, finanzas e impacto.</p></article>
-    <article class="card"><h3>Informe de transparencia — próximamente</h3><p>Estados financieros auditados y políticas internas.</p></article>
-  </section>
-</main>
+  <a href="#main" class="skip-link">Saltar al contenido principal</a>
 
-<footer role="contentinfo">
-  <div class="container" style="padding: 2rem 0;">
-    <small>© 2025 Fundación Legis. Sitio desarrollado por Elena Ordiales.</small>
-  </div>
-</footer>
+  <header class="header" role="banner">
+    <div class="container navbar">
+      <a href="./" class="brand" aria-label="Inicio Fundación Legis">
+        <img src="assets/img/logo-fundacion.jpg" alt="Logotipo Fundación Legis" />
+        <span>Fundación Legis</span>
+      </a>
+      <button class="menu-btn" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
+        <span class="menu-icon" aria-hidden="true"></span>
+        <span class="menu-text">Menú</span>
+      </button>
+      <nav id="site-nav" class="navlinks" role="navigation" aria-label="Navegación principal">
+        <!-- En Blog usamos rutas a secciones de la home -->
+        <a href="index.html#quienes-somos">Quiénes somos</a>
+        <a href="index.html#proyectos">Áreas</a>
+        <a href="index.html#beneficiarios">Beneficiarios</a>
+        <a href="index.html#colabora">Colabora</a>
+        <a href="index.html#transparencia">Transparencia</a>
+        <a href="blog.html" aria-current="page">Noticias</a>
+        <a href="index.html#contacto" class="cta">Contacto</a>
+        <a class="lang-switch" href="en/news.html">EN</a>
+      </nav>
+    </div>
+  </header>
 
-<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite"><div class="container"><p>Usamos cookies técnicas para el funcionamiento del sitio.</p><div class="cookie-actions"><button id="accept-all">Aceptar todas</button><button id="reject-all" class="reject">Rechazar no esenciales</button><button id="open-prefs" class="prefs">Gestionar preferencias</button></div></div></div>
-<dialog id="cookie-prefs" class="dialog"><form id="cookie-form" method="dialog" class="container"><h3 class="mt-0">Preferencias de cookies</h3><div class="card"><label><input type="checkbox" checked disabled /> Necesarias</label></div><div class="card"><label><input id="consent-analytics" type="checkbox" /> Analíticas</label></div><div class="cookie-actions"><button type="submit">Guardar</button><button type="button" id="close-prefs" class="ghost">Cerrar</button></div></form></dialog>
-<script src="assets/js/main.js" defer></script>
+  <main id="main" class="section container">
+    <span class="eyebrow">Actualidad</span>
+    <h1>Noticias</h1>
+    <p class="lead">Aquí publicaremos actualizaciones, artículos y memorias anuales.</p>
+
+    <section id="posts" class="grid-2">
+      <article class="card card--accent">
+        <h3>Memoria anual — próximamente</h3>
+        <p>Publicaremos un resumen de actividades, finanzas e impacto.</p>
+      </article>
+      <article class="card card--accent">
+        <h3>Informe de transparencia — próximamente</h3>
+        <p>Estados financieros auditados y políticas internas.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container inner">
+      <section>
+        <img src="assets/img/logo-fundacion.jpg" alt="Fundación Legis logo" style="height:54px;border-radius:.5rem" />
+        <p class="note mt-2">Promovemos dignidad humana, acceso a la justicia y protección de la infancia.</p>
+        <p class="credit">Web desarrollada por Elena Ordiales.</p>
+      </section>
+      <nav aria-label="Enlaces legales">
+        <h3 class="mt-0">Legal</h3>
+        <ul>
+          <li><a href="legal.html">Aviso legal</a></li>
+          <li><a href="privacy.html">Privacidad</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container" style="padding: .75rem 0; border-top: 1px solid #111;">
+      <small>© 2025 Fundación Legis. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <!-- Banner de cookies (reutiliza el comportamiento global de main.js) -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
+    <div class="container">
+      <p class="mb-0">Usamos cookies técnicas para el funcionamiento del sitio.</p>
+      <div class="cookie-actions">
+        <button id="accept-all">Aceptar todas</button>
+        <button id="reject-all" class="reject">Rechazar no esenciales</button>
+        <button id="open-prefs" class="prefs">Gestionar preferencias</button>
+      </div>
+    </div>
+  </div>
+
+  <dialog id="cookie-prefs" class="dialog">
+    <form id="cookie-form" method="dialog" class="container">
+      <h3 class="mt-0">Preferencias de cookies</h3>
+      <div class="card"><label><input type="checkbox" checked disabled /> Necesarias</label></div>
+      <div class="card"><label><input id="consent-analytics" type="checkbox" /> Analíticas</label></div>
+      <div class="cookie-actions">
+        <button type="submit">Guardar</button>
+        <button type="button" id="close-prefs" class="ghost">Cerrar</button>
+      </div>
+    </form>
+  </dialog>
 </body>
 </html>
