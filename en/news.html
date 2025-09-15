@@ -1,47 +1,120 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>News — Fundación Legis</title>
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>News — Fundación Legis</title>
-<link rel="canonical" href="/en/news.html" />
-<link rel="alternate" hreflang="es" href="/blog.html" />
-<meta name="description" content="News, publications and annual reports of Fundación Legis." />
-<meta name="theme-color" content="#8F273B" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="News — Fundación Legis" />
-<meta property="og:description" content="News, publications and annual reports of Fundación Legis." />
-<meta property="og:image" content="assets/img/logo-fundacion.jpg" />
-<meta property="og:locale" content="en_US" />
-<link rel="icon" href="favicon.ico" />
-<link rel="stylesheet" href="assets/css/styles.css" />
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NGO", "name": "Fundación Legis", "url": "https://www.fundacionlegis.org/"}</script>
+  <!-- SEO -->
+  <link rel="canonical" href="./news.html" />
+  <link rel="alternate" hreflang="es" href="../blog.html" />
+  <meta name="description" content="News, publications and annual reports of Fundación Legis." />
+  <meta name="theme-color" content="#8F273B" />
+  <meta name="generator" content="ChatGPT (GPT-5 Thinking)" />
+  <meta name="author" content="Fundación Legis" />
 
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="News — Fundación Legis" />
+  <meta property="og:description" content="News, publications and annual reports of Fundación Legis." />
+  <meta property="og:image" content="../assets/img/logo-fundacion.jpg" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="News — Fundación Legis" />
+  <meta name="twitter:description" content="News, publications and annual reports of Fundación Legis." />
+  <meta name="twitter:image" content="../assets/img/logo-fundacion.jpg" />
+
+  <!-- Assets (note the ../ because we are inside /en/) -->
+  <link rel="icon" href="../favicon.ico" />
+  <link rel="preload" as="image" href="../assets/img/logo-fundacion.jpg" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <script src="../assets/js/main.js" defer></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "Fundación Legis",
+    "url": "https://www.fundacionlegis.org/",
+    "logo": "https://www.fundacionlegis.org/assets/img/logo-fundacion.jpg",
+    "sameAs": [
+      "https://voxlegis.es/",
+      "https://legisinvestment.com/"
+    ],
+    "foundingDate": "2024",
+    "areaServed": ["ES","EU","International"],
+    "email": "info@fundacionlegis.org",
+    "description": "Fundación Legis supports child protection projects in developing countries and provides criminal and penitentiary assistance for people without resources."
+  }
+  </script>
 </head>
 <body>
-<a href="#main" class="skip-link">Skip to main content</a>
-<header class="header">
-  <div class="container navbar">
-    <a href="en/index.html" class="brand"><img src="../assets/img/logo-fundacion.jpg" alt="" /><span>Fundación Legis</span></a>
-    <nav class="navlinks"><a href="en/index.html">Home</a><a href="#posts">News</a></nav>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="container navbar">
+      <a href="./" class="brand"><img src="../assets/img/logo-fundacion.jpg" alt="" /><span>Fundación Legis</span></a>
+      <nav class="navlinks" role="navigation" aria-label="Primary navigation">
+        <a href="./">Home</a>
+        <a href="./#about">About us</a>
+        <a href="./#programmes">Programmes</a>
+        <a href="./#beneficiaries">Beneficiaries</a>
+        <a href="./#transparency">Transparency</a>
+        <a href="news.html" aria-current="page">News</a>
+        <a href="./#contact" class="cta">Contact</a>
+        <a class="lang-switch" href="../blog.html">ES</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="section container">
+    <h1>News</h1>
+    <p class="lead">We will publish updates, articles and annual reports here.</p>
+
+    <section id="posts" class="grid-2">
+      <article class="card">
+        <h3>Annual report — coming soon</h3>
+        <p>We will publish a summary of activities, finances and impact.</p>
+      </article>
+      <article class="card">
+        <h3>Transparency report — coming soon</h3>
+        <p>Audited financial statements and internal policies.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container" style="padding: 2rem 0;">
+      <small>© 2025 Fundación Legis. Website developed by Elena Ordiales.</small>
+    </div>
+  </footer>
+
+  <!-- Cookie banner -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
+    <div class="container">
+      <p class="mb-0">We use technical cookies for site operation.</p>
+      <div class="cookie-actions">
+        <button id="accept-all">Accept all</button>
+        <button id="reject-all" class="reject">Reject non-essentials</button>
+        <button id="open-prefs" class="prefs">Manage preferences</button>
+      </div>
+    </div>
   </div>
-</header>
-<main id="main" class="section container">
-  <h1>News</h1>
-  <p class="lead">We will publish updates, articles and annual reports here.</p>
-  <section id="posts" class="grid-2">
-    <article class="card"><h3>Annual report — coming soon</h3><p>We will publish a summary of activities, finances and impact.</p></article>
-    <article class="card"><h3>Transparency report — coming soon</h3><p>Audited financial statements and internal policies.</p></article>
-  </section>
-</main>
-<footer role="contentinfo">
-  <div class="container" style="padding: 2rem 0;">
-    <small>© 2025 Fundación Legis. Website developed by Elena Ordiales.</small>
-  </div>
-</footer>
-<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite"><div class="container"><p>We use technical cookies for site operation.</p><div class="cookie-actions"><button id="accept-all">Accept all</button><button id="reject-all" class="reject">Reject non-essentials</button><button id="open-prefs" class="prefs">Manage preferences</button></div></div></div>
-<dialog id="cookie-prefs" class="dialog"><form id="cookie-form" method="dialog" class="container"><h3 class="mt-0">Cookie preferences</h3><div class="card"><label><input type="checkbox" checked disabled /> Necessary</label></div><div class="card"><label><input id="consent-analytics" type="checkbox" /> Analytics</label></div><div class="cookie-actions"><button type="submit">Save</button><button type="button" id="close-prefs" class="ghost">Close</button></div></form></dialog>
-<script src="../assets/js/main.js" defer></script>
+
+  <dialog id="cookie-prefs" class="dialog">
+    <form id="cookie-form" method="dialog" class="container">
+      <h3 class="mt-0">Cookie preferences</h3>
+      <div class="card"><label><input type="checkbox" checked disabled /> Necessary</label></div>
+      <div class="card"><label><input id="consent-analytics" type="checkbox" /> Analytics</label></div>
+      <div class="cookie-actions">
+        <button type="submit">Save</button>
+        <button type="button" id="close-prefs" class="ghost">Close</button>
+      </div>
+    </form>
+  </dialog>
 </body>
 </html>
