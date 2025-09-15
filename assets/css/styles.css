@@ -298,3 +298,47 @@ strong.hl-active {
   color: var(--brand);
   background: linear-gradient(to top, var(--brand-100) 0%, var(--brand-100) 38%, transparent 38%) no-repeat left bottom / 100% 100%;
 }
+/* ====== ENLACES SIN FONDO FIJO + EFECTO HOVER/FOCUS ====== */
+
+/* 1) Limpieza total: quita cualquier fondo fijo que pudiera venir de reglas anteriores */
+a { 
+  background: none !important;
+  box-shadow: none !important;
+  text-decoration: none;
+  color: var(--text);
+  transition: color .14s ease, background-size .18s ease, box-shadow .18s ease;
+}
+
+/* No tocar los botones .cta y .ghost (se quedan como botones) */
+a.cta, a.ghost, .cta, .ghost { background: initial; }
+
+/* 2) Efecto interactivo en TODOS los enlaces NO botón:
+      una “banda” sutil de marca aparece SOLO al pasar el ratón o con el foco */
+a:not(.cta):not(.ghost) {
+  background-image: linear-gradient(to top, var(--brand-100) 0%, var(--brand-100) 40%, transparent 40%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  border-radius: .25rem; /* esquinas suaves cuando aparece */
+}
+
+a:not(.cta):not(.ghost):hover,
+a:not(.cta):not(.ghost):focus-visible {
+  color: var(--brand);
+  background-size: 100% 100%;
+  outline: none;
+}
+
+/* Accesibilidad teclado: si prefieres outline en vez de banda, mantén ambos */
+a:not(.cta):not(.ghost):focus-visible {
+  box-shadow: 0 0 0 3px var(--brand-200);
+}
+
+/* 3) Estados activos para móvil (tap) */
+a:active { filter: brightness(0.98); }
+
+/* 4) Zonas específicas donde había “lavado” fijo: asegúrate de que no reaparezca */
+.hero .actions a:not(.cta):not(.ghost),
+.section p a:not(.cta):not(.ghost),
+footer a:not(.cta):not(.ghost) {
+  background: none; /* estado base sin fondo */
+}
