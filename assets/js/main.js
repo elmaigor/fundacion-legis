@@ -15,21 +15,17 @@ if (menuBtn && links) {
     menuBtn.classList.toggle('is-open', isOpen);
     menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 
-    // Cambia etiqueta accesible según idioma
     const openLabelES = 'Cerrar menú', openLabelEN = 'Close menu';
     const closeLabelES = 'Abrir menú',  closeLabelEN = 'Open menu';
     const isEN = document.documentElement.lang === 'en';
-    menuBtn.setAttribute(
-      'aria-label',
+    menuBtn.setAttribute('aria-label',
       isOpen ? (isEN ? openLabelEN : openLabelES) : (isEN ? closeLabelEN : closeLabelES)
     );
 
-    // Bloquea scroll al abrir
     document.documentElement.classList.toggle('nav-open', isOpen);
     document.body.classList.toggle('nav-open', isOpen);
   });
 
-  // Cierra el menú si haces clic fuera
   document.addEventListener('click', (e) => {
     if (!links.contains(e.target) && !menuBtn.contains(e.target) && links.classList.contains('open')) {
       links.classList.remove('open');
@@ -59,43 +55,46 @@ if (cookieBanner) {
     cookieBanner.style.display = 'none';
   };
 
-  if (acceptAll) {
-    acceptAll.addEventListener('click', () => {
-      saveConsent({ necessary: true, analytics: true });
-    });
-  }
-  if (rejectAll) {
-    rejectAll.addEventListener('click', () => {
-      saveConsent({ necessary: true, analytics: false });
-    });
-  }
-  if (openPrefs && cookiePrefs) {
-    openPrefs.addEventListener('click', () => cookiePrefs.showModal());
-  }
-  if (closePrefs && cookiePrefs) {
-    closePrefs.addEventListener('click', () => cookiePrefs.close());
-  }
-  if (form) {
-    form.addEventListener('submit', () => {
-      saveConsent({ necessary: true, analytics: consentAnalytics?.checked || false });
-      cookiePrefs.close();
-    });
-  }
+  acceptAll?.addEventListener('click', () => saveConsent({ necessary: true, analytics: true }));
+  rejectAll?.addEventListener('click', () => saveConsent({ necessary: true, analytics: false }));
+  openPrefs?.addEventListener('click', () => cookiePrefs?.showModal());
+  closePrefs?.addEventListener('click', () => cookiePrefs?.close());
+  form?.addEventListener('submit', () => {
+    saveConsent({ necessary: true, analytics: consentAnalytics?.checked || false });
+    cookiePrefs?.close();
+  });
 
-  // Mostrar banner si no hay consentimiento guardado
   const saved = localStorage.getItem('cookieConsent');
-  if (!saved) {
-    cookieBanner.style.display = 'block';
-  } else {
-    cookieBanner.style.display = 'none';
-  }
+  cookieBanner.style.display = saved ? 'none' : 'block';
 }
 
-// ===== Resaltado interactivo en <strong> =====
-// Hover → efecto con CSS
-// Clic → fija/desfija resaltado (toggle class)
+// ===== Resaltado interactivo en <strong> (clic para fijar) =====
 document.addEventListener('click', (e) => {
   const el = e.target.closest('strong');
   if (!el) return;
   el.classList.toggle('hl-active');
+});
+
+// ===== Pop-up de inauguración (solo en home ES) =====
+// Debe salir SIEMPRE al entrar (primera carga), bloquear navegación hasta cerrar,
+// y no volver a salir durante la sesión (sí reaparece si cierras el navegador).
+document.addEventListener('DOMContentLoaded', () => {
+  const popup = document.getElementById('popup-inauguracion');
+  const closeBtn = document.getElementById('close-popup');
+
+  if (popup && closeBtn) {
+    const alreadyShown = sessionStorage.getItem('popupShown') === '1';
+    if (!alreadyShown) {
+      popup.style.display = 'flex';
+      document.documentElement.classList.add('nav-open');
+      document.body.classList.add('nav-open');
+    }
+
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+      sessionStorage.setItem('popupShown', '1'); // evita que reaparezca en esta sesión
+      document.documentElement.classList.remove('nav-open');
+      document.body.classList.remove('nav-open');
+    });
+  }
 });
