@@ -10,7 +10,15 @@
   <meta name="description" content="Próximos eventos y actividades de la Fundación Legis." />
   <meta name="theme-color" content="#8F273B" />
 
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Eventos — Fundación Legis" />
+  <meta property="og:description" content="Próximos eventos y actividades de la Fundación Legis." />
+  <meta property="og:image" content="assets/img/logo-fundacion.jpg" />
+  <meta property="og:locale" content="es_ES" />
+
   <link rel="icon" href="favicon.ico" />
+  <link rel="preload" as="image" href="assets/img/evento-inauguracion.png" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <script src="assets/js/main.js" defer></script>
 </head>
@@ -19,8 +27,14 @@
 
   <header class="header">
     <div class="container navbar">
-      <a href="./" class="brand"><img src="assets/img/logo-fundacion.jpg" alt="" /><span>Fundación Legis</span></a>
-      <button class="menu-btn" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false"><span class="menu-icon" aria-hidden="true"></span><span class="menu-text">Menú</span></button>
+      <a href="./" class="brand" aria-label="Inicio Fundación Legis">
+        <img src="assets/img/logo-fundacion.jpg" alt="Logotipo Fundación Legis" />
+        <span>Fundación Legis</span>
+      </a>
+      <button class="menu-btn" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
+        <span class="menu-icon" aria-hidden="true"></span>
+        <span class="menu-text">Menú</span>
+      </button>
       <nav id="site-nav" class="navlinks" aria-label="Navegación principal">
         <a href="index.html#quienes-somos">Quiénes somos</a>
         <a href="index.html#proyectos">Áreas</a>
@@ -43,13 +57,15 @@
 
     <!-- Imagen del evento de inauguración -->
     <section class="card" aria-label="I Gala Solidaria — Inauguración Fundación Legis">
-      <img src="assets/img/evento-inauguracion.png" alt="I Gala Solidaria — Inauguración solidaria de la Fundación Legis (29 de noviembre de 2025, desde las 20:00, Deloya Latores)" style="width:100%;height:auto;border-radius:.75rem" />
+      <img src="assets/img/evento-inauguracion.png"
+           alt="I Gala Solidaria — Inauguración solidaria de la Fundación Legis (29 de noviembre de 2025, 20:00, Deloya Latores). Se ruega etiqueta."
+           style="width:100%;height:auto;border-radius:.75rem" />
       <div class="mt-1">
         <h3>I Gala Solidaria — Inauguración</h3>
         <p>29 de noviembre de 2025 · Desde las 20:00 · Deloya Latores</p>
         <p>Se ruega etiqueta</p>
-        <!-- Enlace a inscripción si lo necesitáis -->
-        <!-- <a class="ghost" href="#" target="_blank" rel="noopener">Inscribirme</a> -->
+        <!-- Si hay inscripción online, descomenta y pon el enlace:
+        <p><a class="ghost" href="URL_INSCRIPCION" target="_blank" rel="noopener">Inscribirme</a></p> -->
       </div>
     </section>
 
@@ -71,7 +87,7 @@
   <footer role="contentinfo">
     <div class="container" style="padding:2rem 0">
       <address style="font-style:normal;line-height:1.6">
-        Quintana 9-Entrs – Oviedo. ASTURIAS · Tel: <a href="tel:900505505">900 505 505</a> – <a href="tel:679276920">679 276 920</a> · 
+        Quintana 9-Entrs – Oviedo. ASTURIAS · Tel: <a href="tel:900505505">900 505 505</a> – <a href="tel:679276920">679 276 920</a> ·
         <a href="mailto:info@fundacionlegis.org">info@fundacionlegis.org</a> – <a href="http://www.fundacionlegis.org" target="_blank" rel="noopener">www.fundacionlegis.org</a>
       </address>
       <small>© 2025 Fundación Legis. Web desarrollada por Elena Ordiales.</small>
