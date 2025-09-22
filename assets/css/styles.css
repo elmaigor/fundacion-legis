@@ -1,18 +1,16 @@
 /* =========================================
-   Fundación Legis — CSS Unificado Elegante
-   Botones outline granate (hover sólido),
-   partners en grid, stats premium, placeholders,
-   popup responsive y footer refinado
+   Fundación Legis — CSS Unificado
+   Elegante, accesible y responsive
 ========================================= */
 
 /* ---------- Variables ---------- */
 :root{
-  --brand: #8F273B;
+  --brand:#8F273B;
   --brand-100:#F6E8EB;
   --brand-200:#E6B9C2;
 
-  --green:#4CAF50;
-  --green-700:#3C8E40;
+  --green:#4CAF50;     /* Verde corporativo */
+  --green-600:#4CAF50;
 
   --bg:#ffffff;
   --bg-alt:#FAFAFA;
@@ -41,12 +39,12 @@ a{color:var(--text);text-decoration:none;transition:color .15s ease,background-s
 .section--brand{background:linear-gradient(180deg,var(--brand-100),#fff 70%)}
 .mt-0{margin-top:0}.mt-1{margin-top:.5rem}.mt-2{margin-top:1rem}.mt-3{margin-top:1.5rem}
 .mb-0{margin-bottom:0}
+.visually-hidden{position:absolute !important;clip:rect(1px,1px,1px,1px);padding:0 !important;border:0 !important;height:1px !important;width:1px !important;overflow:hidden}
 
-h1,h2,h3{line-height:1.25;margin:0 0 1rem}
-.lead{font-size:1.125rem;color:var(--text)}
+/* Eyebrow */
 .eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);border:1px solid var(--border);padding:.2rem .6rem;border-radius:999px;margin-bottom:.6rem}
 
-/* ---------- Skip link ---------- */
+/* Skip link */
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#fff;border:2px solid var(--brand);padding:.5rem .75rem;border-radius:.5rem;z-index:10000}
 
@@ -76,37 +74,44 @@ h1,h2,h3{line-height:1.25;margin:0 0 1rem}
   .navlinks.open{display:flex}
   .navlinks a{padding:.85rem 1rem;border-radius:.6rem}
   .navlinks a:hover{background:var(--bg-alt)}
-  html.nav-open,body.nav-open{overflow:hidden}
 }
 
-/* ---------- Hero ---------- */
-.hero{background:radial-gradient(1200px 420px at 20% -20%,var(--brand-100),transparent),#fff}
+/* ---------- Hero (espaciado elegante) ---------- */
+.hero{
+  background:radial-gradient(1200px 420px at 20% -20%,var(--brand-100),transparent),#fff;
+  padding-top:4rem; padding-bottom:3rem;
+}
+@media (max-width:600px){ .hero{padding-top:3rem} }
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem}
 @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+.hero h1{margin:0 0 1rem}
 .actions{display:flex;gap:.75rem;flex-wrap:wrap}
 
-/* ---------- Botones (outline granate; hover sólido) ---------- */
+/* ---------- Botones ---------- */
+/* Granate outline; hover sólido */
 .btn{
-  display:inline-block;
-  font-weight:700;
-  border-radius:.65rem;
-  padding:.65rem 1.05rem;
-  border:2px solid var(--brand);
-  color:var(--brand);
-  background:transparent;
+  display:inline-block;font-weight:700;border-radius:.65rem;
+  padding:.65rem 1.05rem;border:2px solid var(--brand);
+  color:var(--brand);background:transparent;transition:all .2s ease;
 }
-.btn:hover,.btn:active{
-  background:var(--brand);
-  color:#fff;
-  box-shadow:0 8px 18px rgba(0,0,0,.08);
-  transform:translateY(-1px);
-}
+.btn:hover,.btn:active{background:var(--brand);color:#fff;transform:translateY(-1px)}
 .btn:focus-visible{outline:3px solid var(--brand-200);outline-offset:2px}
 
-/* Enlaces con guiño de subrayado suave al hover */
-a:not(.btn){background-image:linear-gradient(to top,var(--brand-100) 0%,var(--brand-100) 40%,transparent 40%);background-repeat:no-repeat;background-size:0% 100%;border-radius:.25rem}
-a:not(.btn):hover,
-a:not(.btn):focus-visible{color:var(--brand);background-size:100% 100%}
+/* Verde sólido (Quiero colaborar / Contacta con nosotros) */
+.btn-green{
+  display:inline-block;padding:.75rem 1.5rem;border-radius:8px;
+  font-weight:700;text-decoration:none;background-color:var(--green-600);
+  color:#fff;border:2px solid var(--green-600);transition:all .25s ease;
+}
+.btn-green:hover,.btn-green:focus{background:#fff;color:var(--green-600);border-color:var(--green-600)}
+
+/* Enlaces con subrayado suave al hover */
+a:not(.btn):not(.btn-green){
+  background-image:linear-gradient(to top,var(--brand-100) 0%,var(--brand-100) 40%,transparent 40%);
+  background-repeat:no-repeat;background-size:0% 100%;border-radius:.25rem;
+}
+a:not(.btn):not(.btn-green):hover,
+a:not(.btn):not(.btn-green):focus-visible{color:var(--brand);background-size:100% 100%}
 
 /* ---------- Cards & Grids ---------- */
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:1.1rem}
@@ -116,11 +121,7 @@ a:not(.btn):focus-visible{color:var(--brand);background-size:100% 100%}
 @media (max-width:900px){.grid-2{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}}
 
 /* ---------- Partners (logos) ---------- */
-.partners{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:.9rem;
-}
+.partners{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem}
 .partner-tile{
   background:#fff;border:1px solid var(--border);border-radius:.75rem;
   padding:.9rem;display:grid;place-items:center;height:92px;box-shadow:var(--shadow-sm);
@@ -139,9 +140,8 @@ ol.steps{counter-reset:st;list-style:none;padding:0;margin:0}
 ol.steps li{counter-increment:st;background:#fff;border:1px solid var(--border);border-radius:.8rem;padding:.85rem .95rem;margin:.55rem 0;box-shadow:0 6px 18px rgba(0,0,0,.06)}
 ol.steps li::before{content:counter(st);display:inline-grid;place-items:center;width:28px;height:28px;margin-right:.5rem;background:var(--brand);color:#fff;border-radius:999px;font-weight:700}
 
-/* ---------- Stats premium ---------- */
+/* ---------- Stats ---------- */
 .stats-block{padding-top:1rem}
-.stats-block h2{text-align:center;margin-bottom:1.6rem}
 .stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
 @media (max-width:900px){.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .stat-card{background:#fff;border:1px solid var(--border);border-radius:1rem;padding:1.3rem;text-align:center;box-shadow:var(--shadow-sm);transition:transform .18s ease,box-shadow .18s ease}
@@ -152,23 +152,14 @@ ol.steps li::before{content:counter(st);display:inline-grid;place-items:center;w
 /* ---------- Bloques de color ---------- */
 .color-block{
   background:linear-gradient(135deg,var(--brand) 58%,var(--green));
-  color:#fff;
-  padding:2.4rem 1.5rem;
-  border-radius:var(--r);
-  text-align:center;
-  box-shadow:var(--shadow-md);
-  margin:2rem 0;
+  color:#fff;padding:2.4rem 1.5rem;border-radius:var(--r);text-align:center;
+  box-shadow:var(--shadow-md);margin:2rem 0;
 }
-.color-block .btn{border-color:#fff;color:#fff}
+.color-block .btn,.color-block .btn-green{border-color:#fff;color:#fff}
 .color-block .btn:hover{background:#fff;color:var(--brand)}
+.color-block .btn-green:hover{background:#fff;color:var(--green-600)}
 
-/* ---------- Media (vídeo + fotos) ---------- */
-.video-wrapper{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:.9rem;background:#000;box-shadow:var(--shadow-sm)}
-.video-wrapper iframe{position:absolute;inset:0;width:100%;height:100%}
-.photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.9rem;margin-top:1rem}
-.photos img{border-radius:.6rem;border:1px solid var(--border);background:#fff}
-
-/* Placeholders para Proyectos/Historia */
+/* ---------- Media (vídeo/fotos placeholders) ---------- */
 .placeholder-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
 @media (max-width:900px){.placeholder-grid{grid-template-columns:1fr}}
 .placeholder{display:flex;align-items:center;justify-content:center;border:2px dashed var(--border);border-radius:.9rem;height:220px;background:var(--brand-100);color:var(--text-muted);font-weight:700}
@@ -199,7 +190,7 @@ footer .bottom{padding:.75rem 0;border-top:1px solid #222;text-align:center}
 .cookie-actions button.reject{background:#f3f4f6}
 .cookie-actions button.prefs{border-style:dashed}
 
-/* ---------- Popup (cartel responsive) ---------- */
+/* ---------- Popup (imagen responsive) ---------- */
 .popup{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.75);z-index:9999;padding:clamp(8px,2vw,16px)}
 .popup-content{position:relative;background:#000;border-radius:12px;max-width:min(860px,96vw);max-height:min(92vh,100dvh);overflow:hidden;padding:0;box-shadow:var(--shadow-lg)}
 .popup-content img{max-width:100%;max-height:92vh;object-fit:contain}
@@ -207,33 +198,3 @@ footer .bottom{padding:.75rem 0;border-top:1px solid #222;text-align:center}
 .popup-close::before,.popup-close::after,#close-popup::before,#close-popup::after{content:"";position:absolute;left:50%;top:50%;width:22px;height:2px;background:#fff;border-radius:2px}
 .popup-close::before,#close-popup::before{transform:translate(-50%,-50%) rotate(45deg)}
 .popup-close::after,#close-popup::after{transform:translate(-50%,-50%) rotate(-45deg)}
-html.nav-open,body.nav-open{overflow:hidden}
-/* --- Ajuste de espaciado entre menú y hero --- */
-.hero {
-  padding-top: 4rem; /* espacio superior */
-  padding-bottom: 3rem;
-}
-
-.hero h1 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-/* --- Botón verde (ej. "Quiero colaborar", "Contacta con nosotros") --- */
-.btn-green {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  background-color: var(--green-600); /* tu verde corporativo */
-  color: #fff;
-  border: 2px solid var(--green-600);
-  transition: all 0.3s ease;
-}
-
-.btn-green:hover,
-.btn-green:focus {
-  background-color: #fff;
-  color: var(--green-600);
-  border-color: var(--green-600);
-}
