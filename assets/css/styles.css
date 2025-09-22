@@ -1,362 +1,217 @@
-/* -------------------------------
-   Variables y estilos base
----------------------------------- */
-:root {
-  --brand: #8F273B;      /* granate */
-  --brand-light: #a83850;
-  --green: #4CAF50;      /* verde */
-  --green-dark: #3c8e40;
-  --bg-light: #f8f8f8;
-  --text: #222;
-  --text-light: #555;
-  --radius: 0.75rem;
+/* =========================================
+   Fundación Legis — CSS base unificado
+   - Paleta coherente con el logo
+   - Modal (popup) responsive con imagen
+   - Menú móvil accesible
+   - Secciones, cards, listas, galerías
+   - Banner de cookies
+========================================= */
+
+/* ---------- Variables ---------- */
+:root{
+  /* Marca */
+  --brand: #8F273B;
+  --brand-100: #F6E8EB;  /* fondo suave granate */
+  --brand-200: #E6B9C2;  /* resalte accesible */
+  --green: #4CAF50;
+  --green-700:#3c8e40;
+
+  /* Texto y fondos */
+  --bg: #ffffff;
+  --bg-alt: #FAFAFA;
+  --text: #111827;
+  --text-muted: #6B7280;
+  --border: #E5E7EB;
+
+  /* Sombras */
+  --shadow-sm: 0 2px 6px rgba(0,0,0,.06);
+  --shadow-md: 0 8px 24px rgba(0,0,0,.10);
+  --shadow-lg: 0 18px 50px rgba(0,0,0,.25);
+
+  /* Radius */
+  --r: .75rem;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ---------- Reset razonable ---------- */
+*{box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--text);text-decoration:none;transition:color .14s ease, background-size .18s ease, box-shadow .18s ease}
+button{font:inherit}
+
+.container{width:min(92%,1200px);margin-inline:auto}
+.section{padding:3.5rem 0}
+.section--alt{background:var(--bg-alt)}
+.section--brand{background:linear-gradient(180deg,var(--brand-100),#fff 70%)}
+.section--divider{border-top:4px solid var(--brand-100)}
+
+h1,h2,h3{line-height:1.25;margin:0 0 1rem}
+.lead{font-size:1.125rem;color:var(--text)}
+.eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);border:1px solid var(--border);padding:.2rem .5rem;border-radius:999px;margin-bottom:.5rem}
+
+/* utilidades pequeñas */
+.mt-0{margin-top:0}.mt-1{margin-top:.5rem}.mt-2{margin-top:1rem}.mt-3{margin-top:1.5rem}
+.mb-0{margin-bottom:0}
+
+/* ---------- Skip link ---------- */
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#fff;border:2px solid var(--brand);padding:.5rem .75rem;border-radius:.5rem;z-index:10000}
+
+/* ---------- Header / Nav ---------- */
+.header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:999}
+.navbar{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;gap:1rem}
+.brand{display:flex;align-items:center;gap:.5rem;color:var(--text);font-weight:700}
+.brand img{height:42px;border-radius:.5rem}
+
+.navlinks{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.navlinks a{padding:.55rem .65rem;border-radius:.5rem}
+.navlinks a:hover{background:var(--bg-alt)}
+.lang-switch{font-weight:700}
+
+/* Botón hamburguesa accesible */
+.menu-btn{display:none;align-items:center;gap:.5rem;background:#fff;color:var(--text);border:1px solid var(--border);border-radius:.75rem;padding:.5rem .65rem;height:44px;min-width:44px}
+.menu-btn:focus{outline:3px solid var(--brand-200);outline-offset:2px}
+.menu-btn .menu-text{font-weight:600;font-size:.95rem}
+.menu-btn .menu-icon{width:20px;height:2px;background:var(--text);position:relative;border-radius:2px;display:inline-block}
+.menu-btn .menu-icon::before,.menu-btn .menu-icon::after{content:"";position:absolute;left:0;right:0;height:2px;background:var(--text);border-radius:2px}
+.menu-btn .menu-icon::before{top:-6px}
+.menu-btn .menu-icon::after{top:6px}
+.menu-btn.is-open .menu-icon{background:transparent}
+.menu-btn.is-open .menu-icon::before{transform:rotate(45deg);top:0}
+.menu-btn.is-open .menu-icon::after{transform:rotate(-45deg);top:0}
+
+/* Nav móvil */
+@media (max-width:900px){
+  .menu-btn{display:inline-flex}
+  .navlinks{position:absolute;left:0;right:0;top:calc(100% + 8px);background:#fff;border:1px solid var(--border);border-radius:.75rem;padding:.5rem;box-shadow:var(--shadow-md);display:none;flex-direction:column;align-items:stretch}
+  .navlinks.open{display:flex}
+  .navlinks a{padding:.8rem 1rem;border-radius:.5rem}
+  .navlinks a:hover{background:var(--bg-alt)}
+  html.nav-open,body.nav-open{overflow:hidden}
 }
 
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
+/* ---------- Hero ---------- */
+.hero{background:radial-gradient(1200px 400px at 20% -20%,var(--brand-100),transparent),linear-gradient(180deg,#fff,#fff)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+
+.actions{display:flex;gap:.6rem;flex-wrap:wrap}
+
+/* ---------- Botones ---------- */
+.cta,.ghost,.btn-green{display:inline-block;font-weight:700;border-radius:.6rem;padding:.65rem 1.05rem;transition:transform .08s ease,box-shadow .12s ease,filter .12s ease}
+.cta{background:var(--brand);color:#fff}
+.cta:hover{filter:brightness(1.07);box-shadow:0 8px 18px rgba(0,0,0,.08);transform:translateY(-1px)}
+.ghost{border:2px solid var(--brand);color:var(--brand)}
+.ghost:hover{background:var(--brand);color:#fff}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-700)}
+
+/* ---------- Enlaces (sin fondo fijo) ---------- */
+a{background:none !important;box-shadow:none !important}
+a:not(.cta):not(.ghost){background-image:linear-gradient(to top,var(--brand-100) 0%,var(--brand-100) 40%,transparent 40%);background-repeat:no-repeat;background-size:0% 100%;border-radius:.25rem}
+a:not(.cta):not(.ghost):hover,
+a:not(.cta):not(.ghost):focus-visible{color:var(--brand);background-size:100% 100%;outline:none}
+a:not(.cta):not(.ghost):focus-visible{box-shadow:0 0 0 3px var(--brand-200)}
+a:active{filter:brightness(.98)}
+
+/* ---------- Cards / Grids ---------- */
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:1rem}
+.card:hover,.card:focus-within{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.card--accent{border-left:4px solid var(--brand)}
+
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media (max-width:900px){.grid-2{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}}
+
+.partners img{filter:grayscale(40%) contrast(1.05);opacity:.9;transition:filter .2s ease,opacity .2s ease,transform .2s ease}
+.partners img:hover{filter:none;opacity:1;transform:translateY(-2px)}
+
+/* listas de verificación */
+ul.check{list-style:none;margin:0;padding-left:0}
+ul.check li{position:relative;padding-left:1.4rem;margin:.4rem 0}
+ul.check li::before{content:"✓";position:absolute;left:0;top:0;font-weight:700;color:var(--brand)}
+
+/* pasos numerados */
+ol.steps{counter-reset:st;list-style:none;padding:0;margin:0}
+ol.steps li{counter-increment:st;background:#fff;border:1px solid var(--border);border-radius:.75rem;padding:.8rem .9rem;margin:.5rem 0;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+ol.steps li::before{content:counter(st);display:inline-grid;place-items:center;width:28px;height:28px;margin-right:.5rem;background:var(--brand);color:#fff;border-radius:999px;font-weight:700}
+
+/* ---------- Media (vídeo + fotos) ---------- */
+.video-wrapper{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:.75rem;box-shadow:0 8px 24px rgba(0,0,0,.12);background:#000}
+.video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%}
+
+.photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin-top:1rem}
+.photos img{width:100%;height:auto;border-radius:.5rem;border:1px solid var(--border);background:#fff}
+
+/* ---------- Popup (imagen responsive) ---------- */
+.popup{
+  position:fixed; inset:0;
+  display:none; /* se muestra con JS */
+  align-items:center; justify-content:center;
+  background:rgba(0,0,0,.75);
+  z-index:9999;
+  padding:clamp(8px, 2vw, 16px);
+}
+/* contenedor limitado por viewport */
+.popup-content{
+  position:relative;
+  background:#000; /* marco fino negro */
+  border-radius:12px;
+  max-width:min(860px, 96vw);
+  max-height:min(92vh, 100dvh);
+  width:auto; height:auto;
+  overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  padding:0;
+}
+.popup-content img{
+  display:block;
+  max-width:100%;
+  max-height:calc(92vh - 0px);
+  width:auto; height:auto;
+  object-fit:contain;  /* ver cartel completo, sin recortar */
+  margin:0 auto;
+  background:#000;
+}
+/* botón cerrar siempre visible */
+.popup-close,#close-popup{
+  position:absolute; top:8px; right:8px;
+  width:44px; height:44px;
+  border:none; border-radius:999px;
+  background:rgba(0,0,0,.6);
+  cursor:pointer; z-index:2;
+}
+.popup-close::before,.popup-close::after{
+  content:""; position:absolute; left:50%; top:50%;
+  width:22px; height:2px; background:#fff; border-radius:2px;
+}
+.popup-close::before{transform:translate(-50%,-50%) rotate(45deg)}
+.popup-close::after {transform:translate(-50%,-50%) rotate(-45deg)}
+/* bloquear scroll del fondo cuando el modal está abierto */
+html.nav-open, body.nav-open{overflow:hidden}
+@media (max-width:420px){
+  .popup-content{border-radius:10px}
+  .popup-close,#close-popup{top:6px; right:6px; width:40px; height:40px}
 }
 
-body {
-  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: var(--text);
-  background: #fff;
-  line-height: 1.6;
-}
+/* ---------- Formularios ---------- */
+label{display:block;font-weight:600;margin:.5rem 0 .25rem}
+input,textarea,select{width:100%;border:1px solid var(--border);border-radius:.5rem;padding:.65rem .75rem;font:inherit}
+textarea{resize:vertical}
 
-/* -------------------------------
-   Enlaces y botones
----------------------------------- */
-a {
-  color: var(--brand);
-  text-decoration: none;
-  transition: all .2s ease;
-}
+/* ---------- Footer ---------- */
+footer{background:#111;color:#eee;margin-top:2rem}
+footer .inner{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;padding:2rem 0}
+footer a{color:#eee}
+footer a:hover{color:#fff}
+@media (max-width:900px){footer .inner{grid-template-columns:1fr}}
 
-a:hover, a:focus {
-  color: var(--brand-light);
-}
-
-button, .btn, .btn-green, .ghost, .cta {
-  cursor: pointer;
-  border: none;
-  font-weight: 600;
-  border-radius: var(--radius);
-  transition: all .2s ease;
-}
-
-/* Botón verde */
-.btn-green {
-  background: var(--green);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  display: inline-block;
-}
-.btn-green:hover {
-  background: var(--green-dark);
-}
-
-/* Botón fantasma */
-.ghost {
-  display: inline-block;
-  padding: 0.6rem 1.25rem;
-  border: 2px solid var(--brand);
-  color: var(--brand);
-  border-radius: var(--radius);
-}
-.ghost:hover {
-  background: var(--brand);
-  color: #fff;
-}
-
-/* CTA del menú */
-.cta {
-  background: var(--brand);
-  color: #fff !important;
-  padding: 0.5rem 1rem;
-}
-.cta:hover {
-  background: var(--brand-light);
-}
-
-/* -------------------------------
-   Layout general
----------------------------------- */
-.container {
-  width: min(90%, 1200px);
-  margin: auto;
-}
-
-.section {
-  padding: 4rem 0;
-}
-
-.bg-light {
-  background: var(--bg-light);
-}
-
-h1, h2, h3 {
-  margin-bottom: 1rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-p {
-  margin-bottom: 1rem;
-  color: var(--text-light);
-}
-
-.lead {
-  font-size: 1.25rem;
-  color: var(--text);
-}
-
-.eyebrow {
-  display: block;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-  color: var(--brand);
-  margin-bottom: 0.5rem;
-}
-
-/* -------------------------------
-   Header & Nav
----------------------------------- */
-.header {
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 0;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.brand img {
-  height: 40px;
-  border-radius: 50%;
-}
-
-/* Nav links */
-.navlinks {
-  display: flex;
-  gap: 1rem;
-}
-
-.navlinks a {
-  padding: 0.5rem;
-  border-radius: var(--radius);
-}
-.navlinks a:hover {
-  background: var(--bg-light);
-}
-
-/* Botón hamburguesa */
-.menu-btn {
-  display: none;
-  background: none;
-  border: none;
-}
-.menu-icon {
-  width: 24px;
-  height: 2px;
-  background: var(--text);
-  display: block;
-  position: relative;
-}
-.menu-icon::before,
-.menu-icon::after {
-  content: "";
-  width: 24px;
-  height: 2px;
-  background: var(--text);
-  position: absolute;
-  left: 0;
-  transition: all .3s ease;
-}
-.menu-icon::before { top: -8px; }
-.menu-icon::after { top: 8px; }
-
-/* Responsive nav */
-@media (max-width: 768px) {
-  .menu-btn {
-    display: block;
-  }
-  .navlinks {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: #fff;
-    flex-direction: column;
-    padding: 1rem;
-    display: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-  .navlinks.active {
-    display: flex;
-  }
-}
-
-/* -------------------------------
-   Hero
----------------------------------- */
-.hero {
-  background: linear-gradient(to right, #fff, #fdfdfd);
-}
-.hero h1 {
-  font-size: 2.2rem;
-}
-.stats {
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.stat {
-  background: #fff;
-  border: 1px solid #eee;
-  padding: 1rem;
-  border-radius: var(--radius);
-  flex: 1 1 150px;
-  text-align: center;
-}
-.stat span {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--brand);
-}
-
-/* -------------------------------
-   Cards & Grid
----------------------------------- */
-.card {
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: var(--radius);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  margin-bottom: 1.5rem;
-}
-.card--accent {
-  border-top: 4px solid var(--brand);
-}
-
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap: 1.5rem;
-}
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-  gap: 1.5rem;
-}
-
-/* -------------------------------
-   Highlight blocks
----------------------------------- */
-.highlight-block {
-  background: var(--brand);
-  color: #fff;
-  padding: 2rem;
-  border-radius: var(--radius);
-  text-align: center;
-  margin: 2rem 0;
-}
-.highlight-block h2 {
-  margin-bottom: 1rem;
-}
-
-/* -------------------------------
-   Media (imágenes y vídeos)
----------------------------------- */
-.photos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.photos img {
-  flex: 1 1 150px;
-  border-radius: var(--radius);
-  max-width: 100%;
-}
-
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  border-radius: var(--radius);
-}
-.video-wrapper iframe {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-}
-
-/* -------------------------------
-   Popup inauguración
----------------------------------- */
-.popup {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.8);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-}
-.popup-content {
-  background: #fff;
-  padding: 1rem;
-  border-radius: var(--radius);
-  max-width: 600px;
-  width: 90%;
-  text-align: center;
-}
-#close-popup {
-  margin-top: 1rem;
-  padding: 0.5rem 1.5rem;
-  background: var(--brand);
-  color: #fff;
-  border: none;
-  border-radius: var(--radius);
-}
-#close-popup:hover {
-  background: var(--brand-light);
-}
-
-/* -------------------------------
-   Footer
----------------------------------- */
-footer {
-  background: #111;
-  color: #eee;
-  text-align: center;
-}
-footer a {
-  color: #eee;
-}
-footer a:hover {
-  color: var(--brand-light);
-}
+/* ---------- Banner de cookies ---------- */
+.cookie-banner{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--border);box-shadow:0 -6px 18px rgba(0,0,0,.06);padding:.75rem 0;z-index:9000;display:none}
+.cookie-banner .container{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.cookie-actions{display:flex;gap:.5rem}
+.cookie-actions button{border:1px solid var(--border);background:#fff;border-radius:.5rem;padding:.45rem .8rem}
+.cookie-actions button.reject{background:#f3f4f6}
+.cookie-actions button.prefs{border-style:dashed}
+.dialog{border:none;border-radius:1rem;padding:0}
