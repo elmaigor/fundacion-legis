@@ -3,77 +3,289 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Fundación Legis — Justice and dignity for those who need it most</title>
+
+  <link rel="canonical" href="./" />
+  <link rel="alternate" hreflang="es" href="../" />
+  <meta name="description" content="Fundación Legis supports child protection projects in developing countries and provides criminal and penitentiary assistance for people without resources." />
+  <meta name="theme-color" content="#8F273B" />
+  <meta name="author" content="Fundación Legis" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Fundación Legis — Justice and dignity for those who need it most" />
+  <meta property="og:description" content="Fundación Legis supports child protection projects in developing countries and provides criminal and penitentiary assistance for people without resources." />
+  <meta property="og:image" content="../assets/img/logo-fundacion.jpg" />
+  <meta property="og:locale" content="en_US" />
+
   <link rel="icon" href="../favicon.ico" />
   <link rel="stylesheet" href="../assets/css/styles.css" />
+  <script src="../assets/js/main.js" defer></script>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-<header>
-  <nav>
-    <a href="index.html" class="logo"><img src="../assets/img/logo-fundacion.jpg" alt="Fundación Legis"></a>
-    <button class="menu-btn" aria-expanded="false" aria-controls="menu">☰</button>
-    <ul class="navlinks" id="menu">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="areas.html">Areas</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="stories.html">Stories</a></li>
-      <li><a href="events.html">Events</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="collaborate.html">Collaborate</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="../index.html">ES</a></li>
-    </ul>
-  </nav>
-</header>
+  <!-- ===== HEADER ===== -->
+  <header class="header" role="banner">
+    <div class="container navbar">
+      <a href="./" class="brand" aria-label="Fundación Legis Home">
+        <img src="../assets/img/logo-fundacion.jpg" alt="Fundación Legis logo" />
+        <span>Fundación Legis</span>
+      </a>
 
-<section class="hero">
-  <h1>Justice and dignity for those who need it most</h1>
-  <p>Fundación Legis supports vulnerable people and ensures access to criminal and penitentiary justice.</p>
-  <div class="actions">
-    <a class="btn" href="collaborate.html">Collaborate</a>
-    <a class="btn" href="contact.html">Request help</a>
-  </div>
-</section>
+      <button class="menu-btn" aria-label="Open menu" aria-controls="site-nav" aria-expanded="false">
+        <span class="menu-icon" aria-hidden="true"></span>
+        <span class="menu-text">Menu</span>
+      </button>
 
-<section class="partners">
-  <h2>Founding partners</h2>
-  <div class="partners-grid">
-    <a class="partner-tile" href="https://voxlegis.es/" target="_blank" rel="noopener">
-      <img src="../assets/img/logo-voxlegis.jpg" alt="Vox Legis Abogados" />
-    </a>
-    <a class="partner-tile" href="https://legisinvestment.com/" target="_blank" rel="noopener">
-      <img src="../assets/img/logo-legisinvestment.jpg" alt="Legis Investment" />
-    </a>
-    <div class="partner-tile">
-      <img src="../assets/img/logo-asistenciapenitenciaria.jpg" alt="Asistencia Penitenciaria" />
+      <nav id="site-nav" class="navlinks" role="navigation" aria-label="Main navigation">
+        <a href="#about">About us</a>
+        <a href="#areas">Areas</a>
+        <a href="#beneficiaries">Beneficiaries</a>
+        <a href="#collaborate">Collaborate</a>
+        <a href="stories.html">Stories</a>
+        <a href="events.html">Events</a>
+        <a href="#transparency">Transparency</a>
+        <a href="blog.html">News</a>
+        <a href="#contact" class="btn">Contact</a>
+        <a class="lang-switch" href="../">ES</a>
+      </nav>
     </div>
-    <div class="partner-tile">
-      <img src="../assets/img/logo-ethica.jpg" alt="Éthica Consultoría Penal" />
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container wrap">
+      <div>
+        <h1>Justice and dignity for those who need it most</h1>
+        <p class="lead">We support child protection projects in developing countries and provide criminal and penitentiary assistance for people without resources.</p>
+        <div class="actions">
+          <a class="btn" href="#collaborate">Collaborate</a>
+          <a class="btn-ghost" href="#contact">Request help</a>
+        </div>
+
+        <!-- Key figures -->
+        <section class="stats-block">
+          <h2 class="visually-hidden">Key figures</h2>
+          <div class="stats-grid" aria-label="Key figures">
+            <div class="stat-card"><strong>2</strong><span>Areas of work</span></div>
+            <div class="stat-card"><strong>100%</strong><span>Human dignity</span></div>
+            <div class="stat-card"><strong>GDPR</strong><span>Privacy by design</span></div>
+            <div class="stat-card"><strong>AA</strong><span>WCAG accessibility</span></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Founding partners -->
+      <aside class="card" aria-label="Founding partners">
+        <p class="mt-0"><span class="eyebrow">Founding partners</span></p>
+        <div class="partners">
+          <a class="partner-tile" href="https://voxlegis.es/" target="_blank" rel="noopener" aria-label="Vox Legis Abogados (new tab)">
+            <img src="../assets/img/logo-voxlegis.jpg" alt="Vox Legis Abogados" />
+          </a>
+          <a class="partner-tile" href="https://legisinvestment.com/" target="_blank" rel="noopener" aria-label="Legis Investment (new tab)">
+            <img src="../assets/img/logo-legisinvestment.jpg" alt="Legis Investment" />
+          </a>
+          <div class="partner-tile">
+            <img src="../assets/img/logo-asistenciapenitenciaria.jpg" alt="Asistencia Penitenciaria" />
+          </div>
+          <div class="partner-tile">
+            <img src="../assets/img/logo-ethica.jpg" alt="Éthica Consultoría Penal" />
+          </div>
+        </div>
+        <p class="mt-2" style="color:var(--text-muted)">United for justice and social responsibility.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== MAIN ===== -->
+  <main id="main" tabindex="-1">
+    <!-- About -->
+    <section id="about" class="section section--alt">
+      <div class="container">
+        <span class="eyebrow">Fundación Legis</span>
+        <h2>About us</h2>
+        <p class="lead">Fundación Legis was born from the commitment of <strong>Vox Legis Abogados</strong> and <strong>Legis Investment</strong> to human dignity and access to justice.</p>
+        <div class="grid-3">
+          <article class="card"><h3>Mission</h3><p>Promote life opportunities for vulnerable minors and ensure criminal and penitentiary assistance for those without resources.</p></article>
+          <article class="card"><h3>Vision</h3><p>A world where justice and child protection are a reality for all.</p></article>
+          <article class="card"><h3>Values</h3><p>Ethics, justice, transparency, dignity and social commitment.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Areas -->
+    <section id="areas" class="section section--divider">
+      <div class="container">
+        <span class="eyebrow">Areas</span>
+        <h2>Areas of action</h2>
+        <div class="grid-2">
+          <article class="card card--accent">
+            <h3>Child protection</h3>
+            <ul class="check">
+              <li>Primary care and nutrition.</li>
+              <li>Schooling and educational support.</li>
+              <li>Protection from abuse and exploitation.</li>
+            </ul>
+          </article>
+          <article class="card card--accent">
+            <h3>Criminal and penitentiary assistance</h3>
+            <ul class="check">
+              <li>Defense in criminal proceedings.</li>
+              <li>Penitentiary assistance and benefits.</li>
+              <li>Referral to social resources.</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Color block -->
+        <section class="color-block" aria-label="Call to action">
+          <h2>United for dignity and justice</h2>
+          <p>Take one more step with us. Your support multiplies the impact.</p>
+          <a href="#collaborate" class="btn-green">I want to collaborate</a>
+        </section>
+      </div>
+    </section>
+
+    <!-- Beneficiaries -->
+    <section id="beneficiaries" class="section section--brand">
+      <div class="container">
+        <h2>Beneficiaries</h2>
+        <p class="lead">Do you need assistance? This is how the process works:</p>
+        <ol class="steps">
+          <li>Fill out the request form.</li>
+          <li>We assess your case under the Free Legal Aid Law.</li>
+          <li>We contact you for the first appointment.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Collaborate -->
+    <section id="collaborate" class="section section--alt">
+      <div class="container">
+        <h2>Collaborate</h2>
+
+        <div class="grid-3">
+          <article class="card"><h3>Donations</h3><p>We will soon enable donations with card and Bizum. We will inform you as soon as it is ready.</p></article>
+          <article class="card"><h3>Volunteering</h3><p>We are looking for legal, social and cooperation profiles.</p></article>
+          <article class="card"><h3>Alliances</h3>
+            <p>In collaboration with <strong>Compassion</strong>, we support child sponsorship programs in developing countries, ensuring education, health and support.</p>
+            <p class="mt-1"><a class="btn-ghost" href="https://www.compassion.com/" target="_blank" rel="noopener">Learn about Compassion</a></p>
+          </article>
+        </div>
+
+        <!-- Ongoing projects placeholders -->
+        <section class="mt-3" aria-label="Ongoing projects">
+          <h3>Ongoing projects</h3>
+          <div class="placeholder-grid mt-1">
+            <div class="placeholder is-video">Reserved space for video</div>
+            <div class="placeholder">Reserved space for images</div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Transparency -->
+    <section id="transparency" class="section section--divider">
+      <div class="container">
+        <h2>Transparency</h2>
+        <ul>
+          <li>Annual report (PDF) — coming soon.</li>
+          <li>Audited accounts — coming soon.</li>
+          <li>Conflict of interest policy — coming soon.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+
+        <address class="mb-2" style="font-style:normal;line-height:1.65">
+          <strong>Fundación Legis</strong><br />
+          Quintana 9-Entrs – Oviedo. ASTURIAS<br />
+          Tel: <a href="tel:900505505">900 505 505</a> – <a href="tel:679276920">679 276 920</a><br />
+          <a href="mailto:info@fundacionlegis.org">info@fundacionlegis.org</a> – 
+          <a href="http://www.fundacionlegis.org" target="_blank" rel="noopener">www.fundacionlegis.org</a>
+        </address>
+
+        <form action="mailto:info@fundacionlegis.org" method="post" enctype="text/plain" class="card">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" required />
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+          <button type="submit" class="btn">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer role="contentinfo">
+    <div class="container inner">
+      <section>
+        <img src="../assets/img/logo-fundacion.jpg" alt="Fundación Legis" style="height:56px;border-radius:.6rem" />
+        <p class="mt-1" style="color:var(--text-muted)">We promote human dignity, access to justice and child protection.</p>
+        <p class="credit">Website developed by Elena Ordiales.</p>
+      </section>
+
+      <section>
+        <h3 class="mt-0">Contact</h3>
+        <address style="font-style:normal;line-height:1.65">
+          Quintana 9-Entrs – Oviedo. ASTURIAS<br />
+          Tel: <a href="tel:900505505">900 505 505</a> – <a href="tel:679276920">679 276 920</a><br />
+          <a href="mailto:info@fundacionlegis.org">info@fundacionlegis.org</a> – 
+          <a href="http://www.fundacionlegis.org" target="_blank" rel="noopener">www.fundacionlegis.org</a>
+        </address>
+      </section>
+
+      <nav aria-label="Legal links">
+        <h3 class="mt-0">Legal</h3>
+        <ul>
+          <li><a href="legal.html">Legal notice</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container bottom">
+      <small>© 2025 Fundación Legis. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- Popup (image only) -->
+  <div id="popup-inauguracion" class="popup" aria-modal="true" role="dialog" aria-label="I Gala Solidaria" style="display:none">
+    <div class="popup-content">
+      <button id="close-popup" class="popup-close" aria-label="Close"></button>
+      <img src="../assets/img/evento-inauguracion.png" alt="Poster: I Solidarity Gala — Fundación Legis Inauguration" />
     </div>
   </div>
-</section>
 
-<section class="color-block">
-  <h2>United for dignity and justice</h2>
-  <p>Take a step further with us. Your support multiplies the impact.</p>
-  <a href="collaborate.html" class="btn-green">I want to collaborate</a>
-</section>
-
-<footer>
-  <p>Quintana 9-Entrs - Oviedo. ASTURIAS · Tel: 900 505 505 - 679 276 920</p>
-  <p><a href="mailto:info@fundacionlegis.org">info@fundacionlegis.org</a> – <a href="http://www.fundacionlegis.org">www.fundacionlegis.org</a></p>
-  <p class="credit">Developed by Elena Ordiales</p>
-</footer>
-
-<!-- Popup inauguration -->
-<div id="popup-inauguracion" class="popup">
-  <div class="popup-content">
-    <button id="close-popup" class="popup-close"></button>
-    <img src="../assets/img/evento-inauguracion.png" alt="Inauguration poster Fundación Legis" />
+  <!-- Cookie banner -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
+    <div class="container">
+      <p class="mb-0">We use technical cookies necessary for the site to work.</p>
+      <div class="cookie-actions">
+        <button id="accept-all">Accept all</button>
+        <button id="reject-all" class="reject">Reject non-essential</button>
+        <button id="open-prefs" class="prefs">Manage preferences</button>
+      </div>
+    </div>
   </div>
-</div>
 
-<script src="../assets/js/main.js"></script>
+  <dialog id="cookie-prefs" class="dialog">
+    <form id="cookie-form" method="dialog" class="container">
+      <h3 class="mt-0">Cookie preferences</h3>
+      <div class="card"><label><input type="checkbox" checked disabled /> Necessary</label></div>
+      <div class="card"><label><input id="consent-analytics" type="checkbox" /> Analytics</label></div>
+      <div class="cookie-actions">
+        <button type="submit" class="btn">Save</button>
+        <button type="button" id="close-prefs" class="btn-ghost">Close</button>
+      </div>
+    </form>
+  </dialog>
 </body>
 </html>
