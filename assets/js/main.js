@@ -1,10 +1,8 @@
 // main.js — Fundación Legis
-// Control de menú móvil, popup inauguración y banner de cookies
+// Menú móvil, popup inauguración y banner de cookies
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ----------------
   // Menú hamburguesa
-  // ----------------
   const menuBtn = document.querySelector(".menu-btn");
   const nav = document.querySelector(".navlinks");
 
@@ -16,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
       nav.classList.toggle("open");
     });
 
-    // Al hacer clic en un enlace, cerrar el menú
+    // Cerrar al pulsar un enlace
     nav.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         menuBtn.setAttribute("aria-expanded", "false");
@@ -26,46 +24,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ----------------
-  // Popup inauguración
-  // ----------------
-  const popup = document.getElementById("popup-inauguracion");
-  const closePopup = document.getElementById("close-popup");
-  if (popup && closePopup) {
-    // Mostrar solo al entrar en la web por primera vez en la sesión
-    if (!sessionStorage.getItem("popupShown")) {
-      popup.style.display = "flex";
-      sessionStorage.setItem("popupShown", "true");
-    }
-
-    // Cerrar popup
-    closePopup.addEventListener("click", () => {
-      popup.style.display = "none";
-    });
-  }
-
-  // ----------------
-  // Banner de cookies
-  // ----------------
-  const cookieBanner = document.getElementById("cookie-banner");
-  const acceptAll = document.getElementById("accept-all");
-  const rejectAll = document.getElementById("reject-all");
-
-  if (cookieBanner && !localStorage.getItem("cookiesDecision")) {
-    cookieBanner.style.display = "block";
-  }
-
-  if (acceptAll) {
-    acceptAll.addEventListener("click", () => {
-      localStorage.setItem("cookiesDecision", "accepted");
-      cookieBanner.style.display = "none";
-    });
-  }
-
-  if (rejectAll) {
-    rejectAll.addEventListener("click", () => {
-      localStorage.setItem("cookiesDecision", "rejected");
-      cookieBanner.style.display = "none";
-    });
-  }
-});
+  // Popup inauguración (una vez por sesión)
+  const popup
