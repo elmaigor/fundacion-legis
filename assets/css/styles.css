@@ -1,12 +1,8 @@
 /* =========================================
    Fundación Legis — CSS Unificado Elegante
-   - Paleta: granate (#8F273B) + verde (#4CAF50)
-   - partners en grid limpio
-   - stats premium
-   - botones solo granate al hover/click
-   - formulario y footer refinados
-   - placeholders para vídeos/fotos en grid
-   - responsive + accesible (W3C friendly)
+   Botones outline granate (hover sólido),
+   partners en grid, stats premium, placeholders,
+   popup responsive y footer refinado
 ========================================= */
 
 /* ---------- Variables ---------- */
@@ -89,20 +85,28 @@ h1,h2,h3{line-height:1.25;margin:0 0 1rem}
 @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
 .actions{display:flex;gap:.75rem;flex-wrap:wrap}
 
-/* ---------- Botones (solo granate en hover/click) ---------- */
-.btn{display:inline-block;font-weight:700;border-radius:.65rem;padding:.65rem 1.05rem;border:2px solid var(--brand);color:var(--brand);background:transparent}
-.btn:hover,.btn:active{background:var(--brand);color:#fff;box-shadow:0 8px 18px rgba(0,0,0,.08);transform:translateY(-1px)}
+/* ---------- Botones (outline granate; hover sólido) ---------- */
+.btn{
+  display:inline-block;
+  font-weight:700;
+  border-radius:.65rem;
+  padding:.65rem 1.05rem;
+  border:2px solid var(--brand);
+  color:var(--brand);
+  background:transparent;
+}
+.btn:hover,.btn:active{
+  background:var(--brand);
+  color:#fff;
+  box-shadow:0 8px 18px rgba(0,0,0,.08);
+  transform:translateY(-1px);
+}
 .btn:focus-visible{outline:3px solid var(--brand-200);outline-offset:2px}
-.btn-ghost{border:2px solid var(--border);color:var(--text)}
-.btn-ghost:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
-/* (Si necesitas un botón verde) */
-.btn-green{border:2px solid var(--green);color:var(--green)}
-.btn-green:hover{background:var(--green);color:#fff}
 
-/* Enlaces normales con subrayado suave al hover */
-a:not(.btn):not(.cta):not(.ghost){background-image:linear-gradient(to top,var(--brand-100) 0%,var(--brand-100) 40%,transparent 40%);background-repeat:no-repeat;background-size:0% 100%;border-radius:.25rem}
-a:not(.btn):not(.cta):not(.ghost):hover,
-a:not(.btn):not(.cta):not(.ghost):focus-visible{color:var(--brand);background-size:100% 100%}
+/* Enlaces con guiño de subrayado suave al hover */
+a:not(.btn){background-image:linear-gradient(to top,var(--brand-100) 0%,var(--brand-100) 40%,transparent 40%);background-repeat:no-repeat;background-size:0% 100%;border-radius:.25rem}
+a:not(.btn):hover,
+a:not(.btn):focus-visible{color:var(--brand);background-size:100% 100%}
 
 /* ---------- Cards & Grids ---------- */
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:1.1rem}
@@ -145,9 +149,18 @@ ol.steps li::before{content:counter(st);display:inline-grid;place-items:center;w
 .stat-card span{display:block;color:var(--text-muted)}
 .stat-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
 
-/* ---------- Highlight (donación / color) ---------- */
-.highlight-block{background:var(--brand);color:#fff;padding:2rem;border-radius:var(--r);text-align:center;margin:2rem 0}
-.color-block{background:linear-gradient(135deg,var(--brand) 58%,var(--green));color:#fff;padding:2.4rem 1.5rem;border-radius:var(--r);text-align:center;box-shadow:var(--shadow-md);margin:2rem 0}
+/* ---------- Bloques de color ---------- */
+.color-block{
+  background:linear-gradient(135deg,var(--brand) 58%,var(--green));
+  color:#fff;
+  padding:2.4rem 1.5rem;
+  border-radius:var(--r);
+  text-align:center;
+  box-shadow:var(--shadow-md);
+  margin:2rem 0;
+}
+.color-block .btn{border-color:#fff;color:#fff}
+.color-block .btn:hover{background:#fff;color:var(--brand)}
 
 /* ---------- Media (vídeo + fotos) ---------- */
 .video-wrapper{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:.9rem;background:#000;box-shadow:var(--shadow-sm)}
@@ -155,7 +168,7 @@ ol.steps li::before{content:counter(st);display:inline-grid;place-items:center;w
 .photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.9rem;margin-top:1rem}
 .photos img{border-radius:.6rem;border:1px solid var(--border);background:#fff}
 
-/* Placeholders para Historias y Proyectos en marcha */
+/* Placeholders para Proyectos/Historia */
 .placeholder-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
 @media (max-width:900px){.placeholder-grid{grid-template-columns:1fr}}
 .placeholder{display:flex;align-items:center;justify-content:center;border:2px dashed var(--border);border-radius:.9rem;height:220px;background:var(--brand-100);color:var(--text-muted);font-weight:700}
@@ -176,7 +189,6 @@ footer a{color:#eee}
 footer a:hover{color:#fff}
 footer .credit{opacity:.8}
 @media (max-width:900px){footer .inner{grid-template-columns:1fr}}
-/* línea final */
 footer .bottom{padding:.75rem 0;border-top:1px solid #222;text-align:center}
 
 /* ---------- Cookie banner ---------- */
