@@ -12,21 +12,13 @@
   <meta name="theme-color" content="#8F273B" />
   <meta name="author" content="Fundación Legis" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Fundación Legis — Justicia y dignidad para quienes más lo necesitan" />
   <meta property="og:description" content="Fundación Legis promueve la asistencia a personas vulnerables en países en desarrollo y el acceso a la justicia penal y penitenciaria para quienes carecen de recursos." />
   <meta property="og:image" content="assets/img/logo-fundacion.jpg" />
   <meta property="og:locale" content="es_ES" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fundación Legis — Justicia y dignidad para quienes más lo necesitan" />
-  <meta name="twitter:description" content="Fundación Legis promueve la asistencia a personas vulnerables en países en desarrollo y el acceso a la justicia penal y penitenciaria para quienes carecen de recursos." />
-  <meta name="twitter:image" content="assets/img/logo-fundacion.jpg" />
-
   <link rel="icon" href="favicon.ico" />
-  <link rel="preload" as="image" href="assets/img/logo-fundacion.jpg" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <script src="assets/js/main.js" defer></script>
 </head>
@@ -54,7 +46,7 @@
         <a href="eventos.html">Eventos</a>
         <a href="#transparencia">Transparencia</a>
         <a href="blog.html">Noticias</a>
-        <a href="#contacto" class="cta">Contacto</a>
+        <a href="#contacto" class="btn">Contacto</a>
         <a class="lang-switch" href="./en/">EN</a>
       </nav>
     </div>
@@ -64,33 +56,43 @@
     <div class="container wrap">
       <div>
         <h1>Justicia y dignidad para quienes más lo necesitan</h1>
-        <p>Apoyamos la protección de la infancia en países en desarrollo y brindamos asistencia penal y penitenciaria a personas sin recursos.</p>
+        <p class="lead">Apoyamos la protección de la infancia en países en desarrollo y brindamos asistencia penal y penitenciaria a personas sin recursos.</p>
         <div class="actions">
-          <a class="cta" href="#colabora">Colabora</a>
-          <a class="ghost" href="#contacto">Solicitar ayuda</a>
+          <!-- Ambos botones: solo granate al hover/click -->
+          <a class="btn" href="#colabora">Colabora</a>
+          <a class="btn-ghost" href="#contacto">Solicitar ayuda</a>
         </div>
 
-        <div class="stats mt-3" aria-label="Cifras clave">
-          <div class="stat"><strong>2</strong><span>Áreas de trabajo</span></div>
-          <div class="stat"><strong>100%</strong><span>Dignidad humana</span></div>
-          <div class="stat"><strong>RGPD</strong><span>Privacidad por diseño</span></div>
-          <div class="stat"><strong>AA</strong><span>Accesibilidad WCAG</span></div>
-        </div>
+        <!-- Stats premium -->
+        <section class="stats-block">
+          <h2 class="visually-hidden">Cifras clave</h2>
+          <div class="stats-grid" aria-label="Cifras clave">
+            <div class="stat-card"><strong>2</strong><span>Áreas de trabajo</span></div>
+            <div class="stat-card"><strong>100%</strong><span>Dignidad humana</span></div>
+            <div class="stat-card"><strong>RGPD</strong><span>Privacidad por diseño</span></div>
+            <div class="stat-card"><strong>AA</strong><span>Accesibilidad WCAG</span></div>
+          </div>
+        </section>
       </div>
 
-      <aside class="card shadow" aria-label="Empresas impulsoras">
-        <p class="mt-0"><span class="badge">Empresas impulsoras</span></p>
-        <div class="grid-2 partners">
-          <a href="https://voxlegis.es/" target="_blank" rel="noopener">
-            <img src="assets/img/logo-voxlegis.jpg" alt="Vox Legis Abogados (abre en nueva ventana)" />
+      <!-- Empresas impulsoras elegantes -->
+      <aside class="card" aria-label="Empresas impulsoras">
+        <p class="mt-0"><span class="eyebrow">Empresas impulsoras</span></p>
+        <div class="partners">
+          <a class="partner-tile" href="https://voxlegis.es/" target="_blank" rel="noopener" aria-label="Vox Legis Abogados (nueva pestaña)">
+            <img src="assets/img/logo-voxlegis.jpg" alt="Vox Legis Abogados" />
           </a>
-          <a href="https://legisinvestment.com/" target="_blank" rel="noopener">
-            <img src="assets/img/logo-legisinvestment.jpg" alt="Legis Investment (abre en nueva ventana)" />
+          <a class="partner-tile" href="https://legisinvestment.com/" target="_blank" rel="noopener" aria-label="Legis Investment (nueva pestaña)">
+            <img src="assets/img/logo-legisinvestment.jpg" alt="Legis Investment" />
           </a>
-          <img src="assets/img/logo-asistenciapenitenciaria.jpg" alt="Asistencia Penitenciaria" />
-          <img src="assets/img/logo-ethica.jpg" alt="Éthica Consultoría Penal" />
+          <div class="partner-tile">
+            <img src="assets/img/logo-asistenciapenitenciaria.jpg" alt="Asistencia Penitenciaria" />
+          </div>
+          <div class="partner-tile">
+            <img src="assets/img/logo-ethica.jpg" alt="Éthica Consultoría Penal" />
+          </div>
         </div>
-        <p class="mt-2 note">Unidos por la justicia y la responsabilidad social.</p>
+        <p class="mt-2" style="color:var(--text-muted)">Unidos por la justicia y la responsabilidad social.</p>
       </aside>
     </div>
   </section>
@@ -132,11 +134,11 @@
           </article>
         </div>
 
-        <!-- Bloque destacado tipo “donación” -->
-        <section class="highlight-block">
-          <h2>Hazte donante de médula</h2>
-          <p>Uno de nuestros objetivos es concienciar sobre la importancia de hacerse donante de médula. Pincha en el botón para conocer cómo ayudar a salvar una vida.</p>
-          <a href="#" class="btn-green">Donación médula</a>
+        <!-- Bloque con color (guiño granate+verde) -->
+        <section class="color-block" aria-label="Llamada a la acción">
+          <h2>Unidos por la dignidad y la justicia</h2>
+          <p>Da un paso más con nosotros. Tu apoyo multiplica el impacto.</p>
+          <a href="#colabora" class="btn-green">Quiero colaborar</a>
         </section>
       </div>
     </section>
@@ -162,19 +164,16 @@
           <article class="card"><h3>Voluntariado</h3><p>Buscamos perfiles jurídicos, sociales y de cooperación.</p></article>
           <article class="card"><h3>Alianzas</h3>
             <p>En colaboración con <strong>Compassion</strong>, apoyamos programas de patrocinio infantil en países en desarrollo, garantizando educación, salud y acompañamiento.</p>
-            <p class="mt-1"><a class="ghost" href="https://www.compassion.es/" target="_blank" rel="noopener">Conocer Compassion</a></p>
+            <p class="mt-1"><a class="btn-ghost" href="https://www.compassion.es/" target="_blank" rel="noopener">Conocer Compassion</a></p>
           </article>
         </div>
 
-        <!-- Galería ejemplo (foto + vídeo) -->
-        <section class="media-gallery mt-3">
-          <h3>Proyecto en marcha</h3>
-          <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Vídeo del proyecto" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-          <div class="photos">
-            <img src="assets/img/logo-fundacion.jpg" alt="Imagen del proyecto 1" />
-            <img src="assets/img/logo-voxlegis.jpg" alt="Imagen del proyecto 2" />
+        <!-- Proyectos en marcha: placeholders ordenados -->
+        <section class="mt-3" aria-label="Proyectos en marcha">
+          <h3>Proyectos en marcha</h3>
+          <div class="placeholder-grid mt-1">
+            <div class="placeholder is-video">Espacio reservado para vídeo</div>
+            <div class="placeholder">Espacio reservado para imágenes</div>
           </div>
         </section>
       </div>
@@ -195,21 +194,21 @@
       <div class="container">
         <h2>Contacto</h2>
 
-        <address class="mb-2" style="font-style:normal;line-height:1.6">
+        <address class="mb-2" style="font-style:normal;line-height:1.65">
           <strong>Fundación Legis</strong><br />
           Quintana 9-Entrs – Oviedo. ASTURIAS<br />
           Tel: <a href="tel:900505505">900 505 505</a> – <a href="tel:679276920">679 276 920</a><br />
           <a href="mailto:info@fundacionlegis.org">info@fundacionlegis.org</a> – <a href="http://www.fundacionlegis.org" target="_blank" rel="noopener">www.fundacionlegis.org</a>
         </address>
 
-        <form action="mailto:info@fundacionlegis.org" method="post" enctype="text/plain">
+        <form action="mailto:info@fundacionlegis.org" method="post" enctype="text/plain" class="card">
           <label for="nombre">Nombre completo</label>
           <input id="nombre" name="nombre" type="text" required />
           <label for="email">Correo electrónico</label>
           <input id="email" name="email" type="email" required />
           <label for="mensaje">Mensaje</label>
           <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
-          <button type="submit">Enviar</button>
+          <button type="submit" class="btn">Enviar</button>
         </form>
       </div>
     </section>
@@ -218,18 +217,20 @@
   <footer role="contentinfo">
     <div class="container inner">
       <section>
-        <img src="assets/img/logo-fundacion.jpg" alt="Fundación Legis logo" style="height:54px;border-radius:.5rem" />
-        <p class="note mt-2">Promovemos dignidad humana, acceso a la justicia y protección de la infancia.</p>
+        <img src="assets/img/logo-fundacion.jpg" alt="Fundación Legis" style="height:56px;border-radius:.6rem" />
+        <p class="mt-1" style="color:var(--text-muted)">Promovemos dignidad humana, acceso a la justicia y protección de la infancia.</p>
         <p class="credit">Web desarrollada por Elena Ordiales.</p>
       </section>
+
       <section>
         <h3 class="mt-0">Contacto</h3>
-        <address style="font-style:normal;line-height:1.6">
+        <address style="font-style:normal;line-height:1.65">
           Quintana 9-Entrs – Oviedo. ASTURIAS<br />
           Tel: <a href="tel:900505505">900 505 505</a> – <a href="tel:679276920">679 276 920</a><br />
           <a href="mailto:info@fundacionlegis.org">info@fundacionlegis.org</a> – <a href="http://www.fundacionlegis.org" target="_blank" rel="noopener">www.fundacionlegis.org</a>
         </address>
       </section>
+
       <nav aria-label="Enlaces legales">
         <h3 class="mt-0">Legal</h3>
         <ul>
@@ -239,16 +240,16 @@
         </ul>
       </nav>
     </div>
-    <div class="container" style="padding:.75rem 0; border-top:1px solid #111;">
+    <div class="container bottom">
       <small>© 2025 Fundación Legis. Todos los derechos reservados.</small>
     </div>
   </footer>
 
   <!-- Pop-up inauguración (solo imagen) -->
   <div id="popup-inauguracion" class="popup" aria-modal="true" role="dialog" aria-label="I Gala Solidaria" style="display:none">
-    <div class="popup-content no-padding">
+    <div class="popup-content">
       <button id="close-popup" class="popup-close" aria-label="Cerrar"></button>
-      <img src="assets/img/evento-inauguracion.png" alt="I Gala Solidaria — Inauguración solidaria de la Fundación Legis" />
+      <img src="assets/img/evento-inauguracion.png" alt="Cartel: I Gala Solidaria — Inauguración Fundación Legis" />
     </div>
   </div>
 
@@ -270,8 +271,8 @@
       <div class="card"><label><input type="checkbox" checked disabled /> Necesarias</label></div>
       <div class="card"><label><input id="consent-analytics" type="checkbox" /> Analíticas</label></div>
       <div class="cookie-actions">
-        <button type="submit">Guardar</button>
-        <button type="button" id="close-prefs" class="ghost">Cerrar</button>
+        <button type="submit" class="btn">Guardar</button>
+        <button type="button" id="close-prefs" class="btn-ghost">Cerrar</button>
       </div>
     </form>
   </dialog>
