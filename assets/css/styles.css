@@ -1,15 +1,14 @@
 /* =========================================
-   Fundación Legis — CSS Unificado
-   Elegante, accesible y responsive
+   Fundación Legis — CSS Unificado Estable
 ========================================= */
 
-/* ---------- Variables ---------- */
+/* Variables */
 :root{
   --brand:#8F273B;
   --brand-100:#F6E8EB;
   --brand-200:#E6B9C2;
 
-  --green:#4CAF50;     /* Verde corporativo */
+  --green:#4CAF50;
   --green-600:#4CAF50;
 
   --bg:#ffffff;
@@ -25,30 +24,28 @@
   --r:.8rem;
 }
 
-/* ---------- Reset ---------- */
+/* Reset / base */
 *{box-sizing:border-box}
 html{font-size:16px;scroll-behavior:smooth}
 body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";color:var(--text);background:var(--bg);line-height:1.6}
 img{max-width:100%;height:auto;display:block}
 a{color:var(--text);text-decoration:none;transition:color .15s ease,background-size .2s ease,box-shadow .2s ease,transform .08s ease}
+.visually-hidden{position:absolute !important;clip:rect(1px,1px,1px,1px);padding:0 !important;border:0 !important;height:1px !important;width:1px !important;overflow:hidden}
 
-/* ---------- Utilidades ---------- */
+/* Utilidades */
 .container{width:min(92%,1200px);margin-inline:auto}
 .section{padding:3.5rem 0}
 .section--alt{background:var(--bg-alt)}
 .section--brand{background:linear-gradient(180deg,var(--brand-100),#fff 70%)}
 .mt-0{margin-top:0}.mt-1{margin-top:.5rem}.mt-2{margin-top:1rem}.mt-3{margin-top:1.5rem}
 .mb-0{margin-bottom:0}
-.visually-hidden{position:absolute !important;clip:rect(1px,1px,1px,1px);padding:0 !important;border:0 !important;height:1px !important;width:1px !important;overflow:hidden}
-
-/* Eyebrow */
 .eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);border:1px solid var(--border);padding:.2rem .6rem;border-radius:999px;margin-bottom:.6rem}
 
 /* Skip link */
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#fff;border:2px solid var(--brand);padding:.5rem .75rem;border-radius:.5rem;z-index:10000}
 
-/* ---------- Header / Nav ---------- */
+/* Header / Nav */
 .header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:999}
 .navbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0}
 .brand{display:flex;align-items:center;gap:.6rem;color:var(--text);font-weight:800}
@@ -76,51 +73,54 @@ a{color:var(--text);text-decoration:none;transition:color .15s ease,background-s
   .navlinks a:hover{background:var(--bg-alt)}
 }
 
-/* ---------- Hero (espaciado elegante) ---------- */
-.hero{
-  background:radial-gradient(1200px 420px at 20% -20%,var(--brand-100),transparent),#fff;
-  padding-top:4rem; padding-bottom:3rem;
-}
-@media (max-width:600px){ .hero{padding-top:3rem} }
+/* Hero (aire extra) */
+.hero{background:radial-gradient(1200px 420px at 20% -20%,var(--brand-100),transparent),#fff;padding-top:4rem;padding-bottom:3rem}
+@media (max-width:600px){.hero{padding-top:3rem}}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem}
 @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
 .hero h1{margin:0 0 1rem}
 .actions{display:flex;gap:.75rem;flex-wrap:wrap}
 
-/* ---------- Botones ---------- */
-/* Granate outline; hover sólido */
+/* Botones */
+/* Granate outline: .btn */
 .btn{
   display:inline-block;font-weight:700;border-radius:.65rem;
   padding:.65rem 1.05rem;border:2px solid var(--brand);
   color:var(--brand);background:transparent;transition:all .2s ease;
 }
-.btn:hover,.btn:active{background:var(--brand);color:#fff;transform:translateY(-1px)}
+.btn:hover,.btn:focus{background:var(--brand);color:#fff;transform:translateY(-1px)}
 .btn:focus-visible{outline:3px solid var(--brand-200);outline-offset:2px}
 
-/* Verde sólido (Quiero colaborar / Contacta con nosotros) */
+/* Fantasma granate: .btn-ghost */
+.btn-ghost{
+  display:inline-block;font-weight:700;border-radius:.65rem;
+  padding:.65rem 1.05rem;border:2px solid transparent;color:var(--brand);background:transparent;transition:all .2s ease;
+}
+.btn-ghost:hover,.btn-ghost:focus{background:var(--brand);color:#fff;border-color:var(--brand);transform:translateY(-1px)}
+
+/* Verde sólido: .btn-green */
 .btn-green{
-  display:inline-block;padding:.75rem 1.5rem;border-radius:8px;
-  font-weight:700;text-decoration:none;background-color:var(--green-600);
-  color:#fff;border:2px solid var(--green-600);transition:all .25s ease;
+  display:inline-block;font-weight:700;border-radius:.65rem;padding:.75rem 1.5rem;
+  background:var(--green-600);color:#fff;border:2px solid var(--green-600);transition:all .25s ease;
 }
 .btn-green:hover,.btn-green:focus{background:#fff;color:var(--green-600);border-color:var(--green-600)}
 
-/* Enlaces con subrayado suave al hover */
-a:not(.btn):not(.btn-green){
+/* Enlaces con guiño de subrayado */
+a:not(.btn):not(.btn-ghost):not(.btn-green){
   background-image:linear-gradient(to top,var(--brand-100) 0%,var(--brand-100) 40%,transparent 40%);
   background-repeat:no-repeat;background-size:0% 100%;border-radius:.25rem;
 }
-a:not(.btn):not(.btn-green):hover,
-a:not(.btn):not(.btn-green):focus-visible{color:var(--brand);background-size:100% 100%}
+a:not(.btn):not(.btn-ghost):not(.btn-green):hover,
+a:not(.btn):not(.btn-ghost):not(.btn-green):focus-visible{color:var(--brand);background-size:100% 100%}
 
-/* ---------- Cards & Grids ---------- */
+/* Cards & Grids */
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:1.1rem}
 .card--accent{border-left:4px solid var(--brand)}
 .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
 .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
 @media (max-width:900px){.grid-2{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}}
 
-/* ---------- Partners (logos) ---------- */
+/* Partners */
 .partners{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem}
 .partner-tile{
   background:#fff;border:1px solid var(--border);border-radius:.75rem;
@@ -131,7 +131,7 @@ a:not(.btn):not(.btn-green):focus-visible{color:var(--brand);background-size:100
 .partner-tile img{max-height:64px;max-width:100%;object-fit:contain;filter:grayscale(35%) contrast(1.05);opacity:.95}
 .partner-tile:hover img{filter:none;opacity:1}
 
-/* ---------- Listas y pasos ---------- */
+/* Listas & Pasos */
 ul.check{list-style:none;margin:0;padding-left:0}
 ul.check li{position:relative;padding-left:1.4rem;margin:.45rem 0}
 ul.check li::before{content:"✓";position:absolute;left:0;top:0;font-weight:700;color:var(--brand)}
@@ -140,7 +140,7 @@ ol.steps{counter-reset:st;list-style:none;padding:0;margin:0}
 ol.steps li{counter-increment:st;background:#fff;border:1px solid var(--border);border-radius:.8rem;padding:.85rem .95rem;margin:.55rem 0;box-shadow:0 6px 18px rgba(0,0,0,.06)}
 ol.steps li::before{content:counter(st);display:inline-grid;place-items:center;width:28px;height:28px;margin-right:.5rem;background:var(--brand);color:#fff;border-radius:999px;font-weight:700}
 
-/* ---------- Stats ---------- */
+/* Stats */
 .stats-block{padding-top:1rem}
 .stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
 @media (max-width:900px){.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -149,31 +149,32 @@ ol.steps li::before{content:counter(st);display:inline-grid;place-items:center;w
 .stat-card span{display:block;color:var(--text-muted)}
 .stat-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
 
-/* ---------- Bloques de color ---------- */
+/* Bloque de color (granate + verde) */
 .color-block{
   background:linear-gradient(135deg,var(--brand) 58%,var(--green));
   color:#fff;padding:2.4rem 1.5rem;border-radius:var(--r);text-align:center;
   box-shadow:var(--shadow-md);margin:2rem 0;
 }
-.color-block .btn,.color-block .btn-green{border-color:#fff;color:#fff}
+.color-block .btn,.color-block .btn-ghost,.color-block .btn-green{border-color:#fff;color:#fff}
 .color-block .btn:hover{background:#fff;color:var(--brand)}
-.color-block .btn-green:hover{background:#fff;color:var(--green-600)}
+.color-block .btn-ghost:hover{background:#fff;color:var(--brand);border-color:#fff}
+.color-block .btn-green:hover{background:#fff;color:var(--green-600);border-color:#fff}
 
-/* ---------- Media (vídeo/fotos placeholders) ---------- */
+/* Placeholders Media */
 .placeholder-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
 @media (max-width:900px){.placeholder-grid{grid-template-columns:1fr}}
 .placeholder{display:flex;align-items:center;justify-content:center;border:2px dashed var(--border);border-radius:.9rem;height:220px;background:var(--brand-100);color:var(--text-muted);font-weight:700}
 .placeholder.is-video{background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.2)),var(--brand-100)}
 .placeholder.is-video::before{content:"▶";font-size:1.1rem;margin-right:.5rem;color:var(--text-muted)}
 
-/* ---------- Formularios ---------- */
+/* Formularios */
 form{display:grid;gap:.65rem}
 label{display:block;font-weight:700}
 input,textarea,select{width:100%;border:1px solid var(--border);border-radius:.6rem;padding:.7rem .8rem;font:inherit;background:#fff}
 textarea{resize:vertical}
 form button{justify-self:start}
 
-/* ---------- Footer ---------- */
+/* Footer */
 footer{background:#111;color:#eee;margin-top:2rem}
 footer .inner{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1.2rem;padding:2rem 0}
 footer a{color:#eee}
@@ -182,7 +183,7 @@ footer .credit{opacity:.8}
 @media (max-width:900px){footer .inner{grid-template-columns:1fr}}
 footer .bottom{padding:.75rem 0;border-top:1px solid #222;text-align:center}
 
-/* ---------- Cookie banner ---------- */
+/* Cookie banner */
 .cookie-banner{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--border);box-shadow:0 -6px 18px rgba(0,0,0,.06);padding:.75rem 0;z-index:9000;display:none}
 .cookie-banner .container{display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .cookie-actions{display:flex;gap:.5rem}
@@ -190,7 +191,7 @@ footer .bottom{padding:.75rem 0;border-top:1px solid #222;text-align:center}
 .cookie-actions button.reject{background:#f3f4f6}
 .cookie-actions button.prefs{border-style:dashed}
 
-/* ---------- Popup (imagen responsive) ---------- */
+/* Popup (imagen responsive) */
 .popup{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.75);z-index:9999;padding:clamp(8px,2vw,16px)}
 .popup-content{position:relative;background:#000;border-radius:12px;max-width:min(860px,96vw);max-height:min(92vh,100dvh);overflow:hidden;padding:0;box-shadow:var(--shadow-lg)}
 .popup-content img{max-width:100%;max-height:92vh;object-fit:contain}
