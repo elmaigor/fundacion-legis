@@ -216,3 +216,25 @@ footer .bottom{padding:.75rem 0;border-top:1px solid #222;text-align:center}
   color:#4CAF50;
   border-color:#4CAF50;
 }
+/* Botones principales */
+.btn,
+.btn-ghost {
+  display: inline-block;
+  font-weight: 700;
+  border-radius: .65rem;
+  padding: .75rem 1.5rem;
+  border: 2px solid var(--brand);
+  background: #fff;
+  color: var(--brand);
+  transition: all .25s ease;
+  text-decoration: none;
+}
+
+/* Hover / focus: se invierten */
+.btn:hover,
+.btn:focus,
+.btn-ghost:hover,
+.btn-ghost:focus {
+  background: var(--brand);
+  color: #fff;
+}
