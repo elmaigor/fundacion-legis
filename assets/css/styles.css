@@ -218,3 +218,22 @@ html.nav-open,body.nav-open{overflow:hidden}
   margin-top: 0;
   margin-bottom: 1rem;
 }
+/* --- Botón verde (ej. "Quiero colaborar", "Contacta con nosotros") --- */
+.btn-green {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: var(--green-600); /* tu verde corporativo */
+  color: #fff;
+  border: 2px solid var(--green-600);
+  transition: all 0.3s ease;
+}
+
+.btn-green:hover,
+.btn-green:focus {
+  background-color: #fff;
+  color: var(--green-600);
+  border-color: var(--green-600);
+}
