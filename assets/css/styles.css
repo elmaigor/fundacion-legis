@@ -1,38 +1,27 @@
 /* =========================================
-   Fundación Legis — CSS base unificado
-   - Paleta coherente con el logo
-   - Modal (popup) responsive con imagen
-   - Menú móvil accesible
-   - Secciones, cards, listas, galerías
-   - Banner de cookies
+   Fundación Legis — CSS unificado
+   Con más color, placeholders y stats mejoradas
 ========================================= */
 
 /* ---------- Variables ---------- */
 :root{
-  /* Marca */
   --brand: #8F273B;
-  --brand-100: #F6E8EB;  /* fondo suave granate */
-  --brand-200: #E6B9C2;  /* resalte accesible */
+  --brand-100: #F6E8EB;
+  --brand-200: #E6B9C2;
   --green: #4CAF50;
   --green-700:#3c8e40;
-
-  /* Texto y fondos */
   --bg: #ffffff;
   --bg-alt: #FAFAFA;
   --text: #111827;
   --text-muted: #6B7280;
   --border: #E5E7EB;
-
-  /* Sombras */
   --shadow-sm: 0 2px 6px rgba(0,0,0,.06);
   --shadow-md: 0 8px 24px rgba(0,0,0,.10);
   --shadow-lg: 0 18px 50px rgba(0,0,0,.25);
-
-  /* Radius */
   --r: .75rem;
 }
 
-/* ---------- Reset razonable ---------- */
+/* Reset */
 *{box-sizing:border-box}
 html{font-size:16px;scroll-behavior:smooth}
 body{margin:0;font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
@@ -42,26 +31,20 @@ button{font:inherit}
 
 .container{width:min(92%,1200px);margin-inline:auto}
 .section{padding:3.5rem 0}
-.section--alt{background:var(--bg-alt)}
+.bg-light{background:var(--bg-alt)}
 .section--brand{background:linear-gradient(180deg,var(--brand-100),#fff 70%)}
-.section--divider{border-top:4px solid var(--brand-100)}
 
 h1,h2,h3{line-height:1.25;margin:0 0 1rem}
 .lead{font-size:1.125rem;color:var(--text)}
 .eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);border:1px solid var(--border);padding:.2rem .5rem;border-radius:999px;margin-bottom:.5rem}
 
-/* utilidades pequeñas */
-.mt-0{margin-top:0}.mt-1{margin-top:.5rem}.mt-2{margin-top:1rem}.mt-3{margin-top:1.5rem}
-.mb-0{margin-bottom:0}
+/* utilidades */
+.mt-1{margin-top:.5rem}.mt-2{margin-top:1rem}.mt-3{margin-top:1.5rem}
 
-/* ---------- Skip link ---------- */
-.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
-.skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#fff;border:2px solid var(--brand);padding:.5rem .75rem;border-radius:.5rem;z-index:10000}
-
-/* ---------- Header / Nav ---------- */
+/* ---------- Header/Nav ---------- */
 .header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:999}
 .navbar{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;gap:1rem}
-.brand{display:flex;align-items:center;gap:.5rem;color:var(--text);font-weight:700}
+.brand{display:flex;align-items:center;gap:.5rem;font-weight:700;color:var(--text)}
 .brand img{height:42px;border-radius:.5rem}
 
 .navlinks{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
@@ -69,149 +52,74 @@ h1,h2,h3{line-height:1.25;margin:0 0 1rem}
 .navlinks a:hover{background:var(--bg-alt)}
 .lang-switch{font-weight:700}
 
-/* Botón hamburguesa accesible */
-.menu-btn{display:none;align-items:center;gap:.5rem;background:#fff;color:var(--text);border:1px solid var(--border);border-radius:.75rem;padding:.5rem .65rem;height:44px;min-width:44px}
-.menu-btn:focus{outline:3px solid var(--brand-200);outline-offset:2px}
-.menu-btn .menu-text{font-weight:600;font-size:.95rem}
-.menu-btn .menu-icon{width:20px;height:2px;background:var(--text);position:relative;border-radius:2px;display:inline-block}
-.menu-btn .menu-icon::before,.menu-btn .menu-icon::after{content:"";position:absolute;left:0;right:0;height:2px;background:var(--text);border-radius:2px}
-.menu-btn .menu-icon::before{top:-6px}
-.menu-btn .menu-icon::after{top:6px}
-.menu-btn.is-open .menu-icon{background:transparent}
-.menu-btn.is-open .menu-icon::before{transform:rotate(45deg);top:0}
-.menu-btn.is-open .menu-icon::after{transform:rotate(-45deg);top:0}
-
-/* Nav móvil */
-@media (max-width:900px){
-  .menu-btn{display:inline-flex}
-  .navlinks{position:absolute;left:0;right:0;top:calc(100% + 8px);background:#fff;border:1px solid var(--border);border-radius:.75rem;padding:.5rem;box-shadow:var(--shadow-md);display:none;flex-direction:column;align-items:stretch}
+.menu-btn{display:none;align-items:center;gap:.5rem;background:#fff;color:var(--text);border:1px solid var(--border);border-radius:.75rem;padding:.5rem .65rem}
+.menu-icon{width:20px;height:2px;background:var(--text);position:relative;border-radius:2px;display:inline-block}
+.menu-icon::before,.menu-icon::after{content:"";position:absolute;left:0;right:0;height:2px;background:var(--text);border-radius:2px}
+.menu-icon::before{top:-6px}
+.menu-icon::after{top:6px}
+@media(max-width:900px){
+  .menu-btn{display:flex}
+  .navlinks{position:absolute;left:0;right:0;top:calc(100% + 8px);background:#fff;border:1px solid var(--border);border-radius:.75rem;padding:1rem;box-shadow:var(--shadow-md);display:none;flex-direction:column}
   .navlinks.open{display:flex}
-  .navlinks a{padding:.8rem 1rem;border-radius:.5rem}
-  .navlinks a:hover{background:var(--bg-alt)}
   html.nav-open,body.nav-open{overflow:hidden}
 }
 
 /* ---------- Hero ---------- */
-.hero{background:radial-gradient(1200px 400px at 20% -20%,var(--brand-100),transparent),linear-gradient(180deg,#fff,#fff)}
+.hero{background:radial-gradient(1200px 400px at 20% -20%,var(--brand-100),transparent),#fff}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem}
-@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
-
-.actions{display:flex;gap:.6rem;flex-wrap:wrap}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}}
 
 /* ---------- Botones ---------- */
-.cta,.ghost,.btn-green{display:inline-block;font-weight:700;border-radius:.6rem;padding:.65rem 1.05rem;transition:transform .08s ease,box-shadow .12s ease,filter .12s ease}
+.cta,.ghost,.btn-green{display:inline-block;font-weight:700;border-radius:.6rem;padding:.65rem 1.05rem}
 .cta{background:var(--brand);color:#fff}
-.cta:hover{filter:brightness(1.07);box-shadow:0 8px 18px rgba(0,0,0,.08);transform:translateY(-1px)}
+.cta:hover{filter:brightness(1.07)}
 .ghost{border:2px solid var(--brand);color:var(--brand)}
 .ghost:hover{background:var(--brand);color:#fff}
 .btn-green{background:var(--green);color:#fff}
 .btn-green:hover{background:var(--green-700)}
 
-/* ---------- Enlaces (sin fondo fijo) ---------- */
-a{background:none !important;box-shadow:none !important}
-a:not(.cta):not(.ghost){background-image:linear-gradient(to top,var(--brand-100) 0%,var(--brand-100) 40%,transparent 40%);background-repeat:no-repeat;background-size:0% 100%;border-radius:.25rem}
-a:not(.cta):not(.ghost):hover,
-a:not(.cta):not(.ghost):focus-visible{color:var(--brand);background-size:100% 100%;outline:none}
-a:not(.cta):not(.ghost):focus-visible{box-shadow:0 0 0 3px var(--brand-200)}
-a:active{filter:brightness(.98)}
+/* Hover efecto underline */
+a:not(.cta):not(.ghost){background-image:linear-gradient(to top,var(--brand-100) 0%,var(--brand-100) 40%,transparent 40%);background-repeat:no-repeat;background-size:0% 100%}
+a:not(.cta):not(.ghost):hover{background-size:100% 100%;color:var(--brand)}
 
-/* ---------- Cards / Grids ---------- */
+/* ---------- Cards/Grids ---------- */
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:1rem}
-.card:hover,.card:focus-within{transform:translateY(-2px);box-shadow:var(--shadow-md)}
 .card--accent{border-left:4px solid var(--brand)}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
 
-.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
-.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-@media (max-width:900px){.grid-2{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}}
+/* ---------- Highlight Blocks ---------- */
+.highlight-block{background:var(--brand);color:#fff;padding:2rem;border-radius:var(--r);text-align:center;margin:2rem 0}
+.color-block{background:linear-gradient(135deg,var(--brand) 60%,var(--green));color:#fff;padding:2.5rem 1.5rem;border-radius:var(--r);text-align:center;box-shadow:var(--shadow-md);margin:2rem 0}
+.color-block .btn-green{background:#fff;color:var(--green)}
+.color-block .btn-green:hover{background:var(--green-700);color:#fff}
 
-.partners img{filter:grayscale(40%) contrast(1.05);opacity:.9;transition:filter .2s ease,opacity .2s ease,transform .2s ease}
-.partners img:hover{filter:none;opacity:1;transform:translateY(-2px)}
+/* ---------- Placeholders Historias ---------- */
+.video-placeholder,.image-placeholder{display:flex;align-items:center;justify-content:center;background:var(--brand-100);color:var(--text-muted);font-weight:600;font-size:1rem;border:2px dashed var(--border);border-radius:var(--r);height:220px}
 
-/* listas de verificación */
-ul.check{list-style:none;margin:0;padding-left:0}
-ul.check li{position:relative;padding-left:1.4rem;margin:.4rem 0}
-ul.check li::before{content:"✓";position:absolute;left:0;top:0;font-weight:700;color:var(--brand)}
+/* ---------- Stats mejoradas ---------- */
+.stats-block h2{text-align:center;margin-bottom:2rem}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:2rem;text-align:center;box-shadow:var(--shadow-sm);transition:transform .2s ease,box-shadow .2s ease}
+.stat-card span{display:block;font-size:2rem;font-weight:700;color:var(--brand);margin-bottom:.5rem}
+.stat-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
 
-/* pasos numerados */
-ol.steps{counter-reset:st;list-style:none;padding:0;margin:0}
-ol.steps li{counter-increment:st;background:#fff;border:1px solid var(--border);border-radius:.75rem;padding:.8rem .9rem;margin:.5rem 0;box-shadow:0 6px 18px rgba(0,0,0,.06)}
-ol.steps li::before{content:counter(st);display:inline-grid;place-items:center;width:28px;height:28px;margin-right:.5rem;background:var(--brand);color:#fff;border-radius:999px;font-weight:700}
-
-/* ---------- Media (vídeo + fotos) ---------- */
-.video-wrapper{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:.75rem;box-shadow:0 8px 24px rgba(0,0,0,.12);background:#000}
+/* ---------- Media ---------- */
+.video-wrapper{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:.75rem;background:#000}
 .video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%}
-
 .photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin-top:1rem}
-.photos img{width:100%;height:auto;border-radius:.5rem;border:1px solid var(--border);background:#fff}
+.photos img{border-radius:.5rem;border:1px solid var(--border)}
 
-/* ---------- Popup (imagen responsive) ---------- */
-.popup{
-  position:fixed; inset:0;
-  display:none; /* se muestra con JS */
-  align-items:center; justify-content:center;
-  background:rgba(0,0,0,.75);
-  z-index:9999;
-  padding:clamp(8px, 2vw, 16px);
-}
-/* contenedor limitado por viewport */
-.popup-content{
-  position:relative;
-  background:#000; /* marco fino negro */
-  border-radius:12px;
-  max-width:min(860px, 96vw);
-  max-height:min(92vh, 100dvh);
-  width:auto; height:auto;
-  overflow:hidden;
-  box-shadow:var(--shadow-lg);
-  padding:0;
-}
-.popup-content img{
-  display:block;
-  max-width:100%;
-  max-height:calc(92vh - 0px);
-  width:auto; height:auto;
-  object-fit:contain;  /* ver cartel completo, sin recortar */
-  margin:0 auto;
-  background:#000;
-}
-/* botón cerrar siempre visible */
-.popup-close,#close-popup{
-  position:absolute; top:8px; right:8px;
-  width:44px; height:44px;
-  border:none; border-radius:999px;
-  background:rgba(0,0,0,.6);
-  cursor:pointer; z-index:2;
-}
-.popup-close::before,.popup-close::after{
-  content:""; position:absolute; left:50%; top:50%;
-  width:22px; height:2px; background:#fff; border-radius:2px;
-}
-.popup-close::before{transform:translate(-50%,-50%) rotate(45deg)}
-.popup-close::after {transform:translate(-50%,-50%) rotate(-45deg)}
-/* bloquear scroll del fondo cuando el modal está abierto */
-html.nav-open, body.nav-open{overflow:hidden}
-@media (max-width:420px){
-  .popup-content{border-radius:10px}
-  .popup-close,#close-popup{top:6px; right:6px; width:40px; height:40px}
-}
-
-/* ---------- Formularios ---------- */
-label{display:block;font-weight:600;margin:.5rem 0 .25rem}
-input,textarea,select{width:100%;border:1px solid var(--border);border-radius:.5rem;padding:.65rem .75rem;font:inherit}
-textarea{resize:vertical}
+/* ---------- Popup ---------- */
+.popup{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.75);z-index:9999;padding:clamp(8px,2vw,16px)}
+.popup-content{position:relative;background:#000;border-radius:12px;max-width:min(860px,96vw);max-height:min(92vh,100dvh);overflow:hidden;padding:0}
+.popup-content img{max-width:100%;max-height:92vh;object-fit:contain}
+#close-popup{position:absolute;top:8px;right:8px;width:44px;height:44px;border:none;border-radius:999px;background:rgba(0,0,0,.6);cursor:pointer}
+#close-popup::before,#close-popup::after{content:"";position:absolute;left:50%;top:50%;width:22px;height:2px;background:#fff}
+#close-popup::before{transform:translate(-50%,-50%) rotate(45deg)}
+#close-popup::after{transform:translate(-50%,-50%) rotate(-45deg)}
 
 /* ---------- Footer ---------- */
-footer{background:#111;color:#eee;margin-top:2rem}
-footer .inner{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;padding:2rem 0}
+footer{background:#111;color:#eee;margin-top:2rem;text-align:center;padding:2rem 0}
 footer a{color:#eee}
 footer a:hover{color:#fff}
-@media (max-width:900px){footer .inner{grid-template-columns:1fr}}
-
-/* ---------- Banner de cookies ---------- */
-.cookie-banner{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--border);box-shadow:0 -6px 18px rgba(0,0,0,.06);padding:.75rem 0;z-index:9000;display:none}
-.cookie-banner .container{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.cookie-actions{display:flex;gap:.5rem}
-.cookie-actions button{border:1px solid var(--border);background:#fff;border-radius:.5rem;padding:.45rem .8rem}
-.cookie-actions button.reject{background:#f3f4f6}
-.cookie-actions button.prefs{border-style:dashed}
-.dialog{border:none;border-radius:1rem;padding:0}
